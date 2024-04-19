@@ -1,0 +1,11 @@
+# Identify sshfs processes that are not responding and kill them
+while read -r pid; do
+  kill -9 "$pid"
+done < <(pgrep sshfs)
+
+# unmount the endpoints
+fusermount -zu ~/dt/scratch
+fusermount -zu ~/dt/scratch_isilon
+
+# mount the endpoints
+mountdt

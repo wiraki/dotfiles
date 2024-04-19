@@ -1,0 +1,6 @@
+[submodule ".config/kitty/kitty-search"]
+	path = .config/kitty/kitty-search
+	url = https://github.com/trygveaa/kitty-kitten-search
+[submodule ".config/kitty/kitty-grab"]
+	path = .config/kitty/kitty-grab
+	url = https://github.com/yurikhan/kitty_grab.git

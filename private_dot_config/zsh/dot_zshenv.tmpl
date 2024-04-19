@@ -1,0 +1,5 @@
+{{- if eq .chezmoi.hostname "system76-lemur" -}}
+{{-   include "private_dot_config/zsh/.zshenv_system76lemur" -}}
+{{- else if eq .chezmoi.hostname "workPC" -}}
+{{-   include "private_dot_config/zsh/.zshenv_workPC" -}}
+{{- end -}}

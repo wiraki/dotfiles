@@ -1,0 +1,185 @@
+action_alias overlay launch --type=overlay
+action_alias copy_to copy_to_buffer
+action_alias paste_from paste_from_buffer
+
+share_connections yes
+allow_remote_control yes
+
+font_family MonoLisa Regular
+bold_font MonoLisa Bold
+italic_font MonoLisa Medium Italic
+bold_italic_font SemiBold Italic
+
+font_features MonoLisa-Regular +zero +ss06 +ss08
+font_features MonoLisa-Bold +zero +ss06 +ss08
+font_features MonoLisa-MediumItalic +zero +ss06 +ss08 +ss02
+font_features MonoLisa-SemiBoldItalic +zero +ss06 +ss08
+# The line below enables italic script
+# font_features MonoLisa-MediumItalic +ss02
+
+symbol_map U+23FB-U+23FE,U+2665,U+26A1,U+2B58,U+E000-U+E00A,U+E0A0-U+E0A3,U+E0B0-U+E0C8,U+E0CA,U+E0CC-U+E0D2,U+E0D4,U+E200-U+E2A9,U+E300-U+E3E3,U+E5FA-U+E634,U+E700-U+E7C5,U+EA60-U+EBEB,U+F000-U+F2E0,U+F300-U+F32F,U+F400-U+F4A9,U+F500-U+F8FF Symbols Nerd Font Mono
+
+# font_family Victor Mono Medium
+# bold_font Victor Mono SemiBold
+# italic_font Victor Mono Italic
+# bold_italic_font Victor Mono SemiBold Oblique
+
+font_size {{ .kitty_font_size }}
+
+adjust_line_height 102%
+
+disable_ligatures cursor
+
+cursor_shape block
+cursor_blink_interval 0.45
+cursor_stop_blinking_after 10.0
+
+scrollback_lines 2500
+scrollback_pager_history_size 100
+scrollback_fill_enlarged_window yes
+
+mouse_hide_wait 1.5
+
+url_style single
+
+copy_on_select yes
+
+strip_trailing_spaces never
+
+pointer_shape_when_grabbed arrow
+
+mouse_map right press ungrabbed,grabbed paste_from_selection
+
+enable_audio_bell no
+
+visual_bell_duration 0.15
+
+bell_on_tab yes
+
+visual_bell_color #515a72
+
+# enabled_layouts tall:bias=40,fat,splits:split_axis=horizontal,grid,horizontal,vertical,stack,tall:bias=40;mirrored=true,fat:mirrored=true
+enabled_layouts splits:split_axis=horizontal
+
+map kitty_mod+space next_layout
+
+map kitty_mod+o launch --location=hsplit
+map kitty_mod+alt+o launch --cwd=current --location=hsplit
+map kitty_mod+e launch --location=vsplit
+map kitty_mod+alt+e launch --cwd=current --location=vsplit
+
+window_border_width 1px
+draw_minimal_borders yes
+window_margin_width 0
+window_padding_width 1
+active_border_color #676767
+inactive_border_color #383e49
+# inactive_border_color #2e3440
+inactive_text_alpha 0.65
+hide_window_decorations yes
+
+#resize
+map kitty_mod+alt+left resize_window narrower
+map kitty_mod+alt+right resize_window wider
+map kitty_mod+alt+up resize_window taller
+map kitty_mod+alt+down resize_window shorter
+map kitty_mod+alt+home resize_window reset
+
+
+tab_bar_edge top
+tab_bar_margin_height 1.0 3.0
+tab_bar_style powerline
+tab_bar_min_tabs 1
+tab_fade 0.25 0.5 0.75 1
+tab_separator " | "
+tab_powerline_style round
+tab_activity_symbol ⁂
+tab_title_template {title} [{index}]{fmt.bold}{activity_symbol}{fmt.nobold}
+active_tab_title_template {title}
+active_tab_font_style   bold
+tab_title_max_length 40
+inactive_tab_foreground #fff
+inactive_tab_background #647b94
+inactive_tab_font_style italic
+
+background_opacity 1
+dynamic_background_opacity yes
+
+kitty_mod ctrl+shift
+
+map shift+alt+k scroll_line_up
+map shift+alt+j scroll_line_down
+map shift+alt+page_up   scroll_page_up
+map shift+alt+page_down scroll_page_down
+
+map alt+h neighboring_window left
+map alt+j neighboring_window down
+map alt+k neighboring_window up
+map alt+l neighboring_window right
+map alt+f focus_visible_window
+
+map kitty_mod+x>w close_other_windows_in_tab
+
+map kitty_mod+f1 overlay --title "scrollback overlay" --stdin-source=@screen_scrollback bat
+map kitty_mod+f4 overlay --title "scratch overlay" screen -d -RR scratch nano /tmp/scratch
+# map kitty_mod+f6 overlay --title "cwd overlay" --cwd=current
+
+map ctrl+alt+enter launch --cwd=current
+
+map kitty_mod+h move_window left
+map kitty_mod+j move_window down
+map kitty_mod+k move_window up
+map kitty_mod+l move_window right
+map kitty_mod+m>s swap_with_window
+map kitty_mod+m>t detach_window ask
+map kitty_mod+up layout_action move_to_screen_edge top
+map kitty_mod+left layout_action move_to_screen_edge left
+map kitty_mod+right layout_action move_to_screen_edge right
+map kitty_mod+down layout_action move_to_screen_edge bottom
+map kitty_mod+r layout_action rotate
+
+map alt+shift+1 goto_tab 1
+map alt+shift+2 goto_tab 2
+map alt+shift+3 goto_tab 3
+map alt+shift+4 goto_tab 4
+map alt+shift+5 goto_tab 5
+map alt+shift+6 goto_tab 6
+map alt+shift+7 goto_tab 7
+map alt+shift+8 goto_tab 8
+map alt+shift+9 goto_tab 9
+map alt+shift+0 goto_tab 10
+map shift+alt+[ previous_tab
+map shift+alt+] next_tab
+map kitty_mod+alt+t
+map kitty_mod+alt+t launch --type tab --cwd current
+map kitty_mod+m>a detach_tab ask
+map kitty_mod+x>t close_other_tabs_in_os_window
+
+map kitty_mod+f5 load_config_file
+
+map ctrl+shift+y>f kitten hints --type path --program @
+map ctrl+shift+p>w kitten hints --type word --program -
+map ctrl+shift+y>w kitten hints --type word --program @
+
+shell_integration enabled no-cursor
+
+# map ctrl+n launch --location=neighbor
+
+map f1 create_marker
+map f2 remove_marker
+
+map kitty_mod+/      launch --location=hsplit --allow-remote-control kitty +kitten kitty-search/search.py @active-kitty-window-id
+
+# map kitty_mod+= kitten kitty_grab/grab.py
+
+map ctrl+enter send_text normal,application \x1b[13;5u
+
+map f9 launch --type=background --cwd=current sh -c "nemo $(pwd)"
+
+# Send a notification when a command takes more than 10 seconds in a invisible window
+notify_on_cmd_finish invisible 10.0
+
+# focus the previously active kitty OS window
+map ctrl+p nth_os_window -1
+
+include current-theme.conf

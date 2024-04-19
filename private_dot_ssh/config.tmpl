@@ -1,0 +1,70 @@
+Host login1
+  HostName 172.16.10.20
+  User ***REMOVED***
+  IdentityFile "~/.ssh/id_rsa"
+  ServerAliveInterval 60
+  PubkeyAcceptedAlgorithms +ssh-rsa
+  HostkeyAlgorithms +ssh-rsa
+
+Host login2
+  HostName 172.16.10.21
+  User ***REMOVED***
+  IdentityFile "~/.ssh/id_rsa"
+  ServerAliveInterval 60
+  PubkeyAcceptedAlgorithms +ssh-rsa
+  HostkeyAlgorithms +ssh-rsa
+
+Host login6
+  HostName 172.16.10.106
+  User ***REMOVED***
+  IdentityFile "~/.ssh/id_rsa"
+  ServerAliveInterval 60
+  PubkeyAcceptedAlgorithms +ssh-rsa
+  HostkeyAlgorithms +ssh-rsa
+
+Host login7
+  HostName 10.92.1.107
+  User ***REMOVED***
+  IdentityFile "~/.ssh/id_rsa"
+  ServerAliveInterval 60
+  PubkeyAcceptedAlgorithms +ssh-rsa
+  HostkeyAlgorithms +ssh-rsa
+
+Host dt1
+  HostName 172.16.10.23
+  User ***REMOVED***
+  IdentityFile "~/.ssh/id_rsa"
+  ServerAliveInterval 60
+  PubkeyAcceptedAlgorithms +ssh-rsa
+  HostkeyAlgorithms +ssh-rsa
+
+Host dt2
+  HostName 172.16.10.24
+  User ***REMOVED***
+  IdentityFile "~/.ssh/id_rsa"
+  ServerAliveInterval 60
+  PubkeyAcceptedAlgorithms +ssh-rsa
+  HostkeyAlgorithms +ssh-rsa
+
+Host mpi-hpcl7
+  HostName hpcl7001.biochem.mpg.de
+  User ***REMOVED***
+  IdentityFile "~/.ssh/id_rsa"
+  ServerAliveInterval 60
+  PubkeyAcceptedAlgorithms +ssh-rsa
+  HostkeyAlgorithms +ssh-rsa
+
+{{- if eq .chezmoi.hostname "system76-lemur" }}
+Host workPC
+  HostName 10.82.1.21
+  User ***REMOVED***
+  ServerAliveInterval 60
+  IdentityFile "~/.ssh/id_rsa"
+  PubkeyAcceptedAlgorithms +ssh-rsa
+  HostkeyAlgorithms +ssh-rsa
+  ForwardX11 yes
+
+Host gitlab.com
+  PreferredAuthentications publickey
+  IdentityFile "~/.ssh/id_gitlab_com_ed25519"
+{{- end }}

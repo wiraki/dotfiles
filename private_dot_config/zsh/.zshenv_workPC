@@ -1,0 +1,26 @@
+# Add at the beginning of PATH
+typeset -U PATH path
+path=(~/.local/bin ~/bin ~/.cargo/bin /usr/local/bin ~/.aspera/cli $path)
+
+# Export PATH
+export PATH
+
+# fzf configuration
+if type rg &> /dev/null; then
+  export FZF_DEFAULT_COMMAND='fd --no-ignore-vcs --hidden --exclude ".git" --exclude "conf"'
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+  export FZF_DEFAULT_OPTS="-m --height 70% --layout=reverse --border"
+fi
+
+# Export variables for BAT
+export BAT_THEME="Nord"
+export BAT_PAGER="less"
+
+# Export spicetify
+export SPICETIFY_INSTALL="$HOME/.spicetify"
+export PATH="$PATH:$HOME/.spicetify"
+
+# nvm configuration
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
