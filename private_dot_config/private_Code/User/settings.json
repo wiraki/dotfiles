@@ -1,0 +1,339 @@
+{
+  "projectManager.git.baseFolders": [
+    "~/dt1/scratch/workspace"
+  ],
+  "terminal.external.linuxExec": "~/.local/kitty.app/bin/kitty",
+  "workbench.colorTheme": "Catppuccin Macchiato",
+  "catppuccin.accentColor": "yellow",
+  "catppuccin.extraBordersEnabled": true,
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+        "before": ["c"],
+        "after": ["\"", "_", "c"]
+    },
+    {
+        "before": ["C"],
+        "after": ["\"", "_", "C"]
+    },
+    {
+      "before": ["d"],
+      "after": ["\"", "_", "d"]
+    },
+    {
+      "before": ["D"],
+      "after": ["\"", "_", "D"]
+    },
+    {
+      "before": ["d", "d"],
+      "after": ["\"", "_", "d", "d"]
+    },
+    {
+      "before": [
+        ">"
+      ],
+      "commands": [
+        "editor.action.indentLines"
+        ]
+    },
+    {
+      "before": [
+        "<"
+      ],
+      "commands": [
+        "editor.action.outdentLines"
+      ]
+    },
+  ],
+  "[markdown]": {
+      "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+  },
+  "[python]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    },
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnPaste": false,
+    "editor.formatOnSaveMode": "file"
+  },
+  "[quarto]": {
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": false
+  },
+  "[shellscript]": {
+    "editor.tabSize": 2,
+    "editor.wordWrap": "off"
+  },
+  "banner-comments.figlet.horizontalLayout": "default",
+  "banner-comments.h1": "Thick",
+  "breadcrumbs.filePath": "last",
+  "diffEditor.ignoreTrimWhitespace": true,
+  "diffEditor.renderSideBySide": true,
+  "editor.acceptSuggestionOnEnter": "off",
+  "editor.accessibilitySupport": "off",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.cursorBlinking": "smooth",
+  // Controls the minimal number of visible leading and trailing lines surrounding the cursor. Known as 'scrollOff' or 'scrollOffset' in some other editors.
+  "editor.cursorSurroundingLines": 10,
+  "editor.dragAndDrop": false,
+  "editor.fontFamily": "'MonoLisa'",
+
+  "editor.fontLigatures": "'zero' on, 'ss06' on, 'ss02' on, 'ss08' on, 'ss16' on, 'ss17' on, 'liga' on",
+  "editor.fontSize": 14,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.guides.bracketPairs": "active",
+  "editor.inlineSuggest.enabled": true,
+  "editor.letterSpacing": -0.3,
+  "editor.lineHeight": 21,
+  // Controls the display of line numbers.
+  //  - off: Line numbers are not rendered.
+  //  - on: Line numbers are rendered as absolute number.
+  //  - relative: Line numbers are rendered as distance in lines to cursor position.
+  //  - interval: Line numbers are rendered every 10 lines.
+  "editor.lineNumbers": "relative",
+  "editor.linkedEditing": true,
+  "editor.minimap.enabled": true,
+  // "editor.fontLigatures": true,
+  "editor.minimap.maxColumn": 150,
+  
+  "editor.minimap.showSlider": "always",
+  "editor.minimap.side": "left",
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.parameterHints.cycle": true,
+  "editor.renderLineHighlight": "all",
+  "editor.renderWhitespace": "selection",
+  "editor.scrollBeyondLastLine": false,
+  "editor.smoothScrolling": true,
+  "editor.stickyTabStops": true,
+  "editor.suggestFontSize": 13,
+  "editor.suggestSelection": "first",
+  "editor.tabCompletion": "on",
+  "editor.tokenColorCustomizations": {
+      "textMateRules": [
+          {
+              "scope": "comment",
+              "settings": {
+                  "fontStyle": "italic"
+              }
+          }
+      ]
+  },
+  "files.eol": "\n",
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.factorypath": true,
+    "**/.project": true,
+    "**/.settings": true
+  },
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "git.confirmSync": false,
+  "git.ignoreLegacyWarning": true,
+  "github.copilot.advanced": {},
+  "github.copilot.enable": {
+    "*": true,
+    "quarto": true
+  },
+  "gitlens.advanced.messages": {
+    "suppressGitVersionWarning": true
+  },
+  "gitlens.defaultTimeFormat": "HH:mm",
+	"jupyter.logKernelOutputSeparately": true,
+  "jupyter.logging.level": "verbose",
+  // controls the dispatching logic for key presses to use either `code` (recommended) or `keycode`.
+  "keyboard.dispatch": "keyCode",
+  "markdownlint.config": {
+    "md033": {
+      "allowed_elements": [
+        "img"
+      ]
+    }
+  },
+  "notebook.cellToolbarVisibility": "hover",
+  "notebook.lineNumbers": "on",
+  "notebook.markup.fontSize": 15,
+  "notebook.stickyScroll.enabled": true,
+  "notebook.gotoSymbols.showAllSymbols: true",
+  "notebook.outline.showCodeCells: false",
+  "problems.showCurrentInStatus": true,
+  "projectManager.showProjectNameInStatusBar": true,
+  "python.languageServer": "pylance",
+  "quarto.cells.background.dark": "#41455966",
+  "remote.SSH.connectTimeout": 30,
+  "remote.SSH.remotePlatform": {
+  	"workPC": "linux",
+  },
+  "remote.extensionKind": {
+    "alefragnani.project-manager": [
+    "workspace"
+    ]
+  },
+  "bashIde.shellcheckPath": "/usr/bin/shellcheck",
+  "telemetry.telemetryLevel": "off",
+  "terminal.explorerKind": "external",
+  "terminal.integrated.copyOnSelection": true,
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.customGlyphs": true,
+  "terminal.integrated.fontFamily": "monolisa, jetbrainsmono nerd font",
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.inheritEnv": false,
+  "terminal.integrated.letterSpacing": 0,
+  "terminal.integrated.lineHeight": 1.1,
+  "terminal.integrated.minimumContrastRatio": 1,
+  "terminal.integrated.rightClickBehavior": "copypaste",
+  "terminal.integrated.scrollback": 10000,
+  "terminal.integrated.smoothScrolling": true,
+  "terminal.integrated.tabs.hideCondition": "never",
+  "vim.handleKeys": {
+    "<C-d>": false,
+    "<C-k>": false,
+  },
+  "vim.hlsearch": true,
+  "vim.leader": "<space>",
+  "vim.normalModeKeyBindings": [
+	  {
+	  "before": ["<leader>", "a"],
+	  "commands": ["workbench.action.quickOpen"]
+	  }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["d"],
+      "after": ["\"", "_", "d"]
+    },
+    {
+      "before": ["D"],
+      "after": ["\"", "_", "D"]
+    },
+    {
+      "before": ["d", "d"],
+      "after": ["\"", "_", "d", "d"]
+    },
+    {
+        "before": ["c"],
+        "after": ["\"", "_", "c"]
+    },
+    {
+        "before": ["C"],
+        "after": ["\"", "_", "C"]
+    },
+    {
+      // Pressing the leader key (Spacebar) followed by "a" opens the quick open panel.
+      "before": ["leader", "a"],
+      "commands": ["workbench.action.quickOpen"]
+    }
+    {
+      "before": [
+        "<c-n>"
+      ],
+      "commands": [
+        ":nohl"
+      ]
+    },
+    {
+      "before": [
+        "<c-k>"
+        ],
+      "commands": [
+        "editor.action.showhover"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+          "n"
+      ],
+      "commands": [
+        "workbench.action.togglesidebarvisibility"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "r",
+        "r"
+      ],
+      "commands": [
+        "editor.action.rename"
+      ]
+    },
+    {
+      "after": [
+        "\"",
+        "_",
+        "d"
+      ],
+      "before": [
+        "d"
+      ]
+    },
+    {
+      "after": [
+        "\"",
+        "_",
+        "d"
+      ],
+      "before": [
+        "d"
+      ]
+    },
+    {
+      "after": [
+        "\"",
+        "_",
+        "d",
+        "d"
+      ],
+      "before": [
+        "d",
+        "d"
+      ]
+    },
+    {
+      "after": [
+        "\"",
+        "_",
+        "d"
+      ],
+      "before": [
+        "<bs>"
+      ]
+    },
+    {
+      "after": [
+        "\"",
+        "_",
+        "x"
+      ],
+      "before": [
+        "x"
+      ]
+    }
+  ],
+  "vim.smartRelativeLine": true,
+  // "extensions.experimental.affinity": {
+  // 	"asvetliakov.vscode-neovim:"1
+  // },
+  "vim.useSystemClipboard": true,
+  "window.commandCenter": true,
+  "window.menuBarVisibility": "compact",
+  "window.restoreFullscreen": true,
+  "window.restoreWindows": "all",
+  "window.title": "${rootname}${separator}${activeeditorshort}${dirty}${separator}${appname}",
+  "window.titleBarStyle": "custom",
+  "window.density.editorTabHeight": "compact",
+  "workbench.activityBar.location": "default",
+  "workbench.colorCustomizations": {
+    "notebook.cellEditorBackground": "#41455966"
+  },
+  "workbench.editor.enablePreview": false,
+  "workbench.enableExperiments": false,
+  "workbench.iconTheme": "eq-material-theme-icons-light",
+  "workbench.list.horizontalScrolling": true,
+  "workbench.settings.useSplitJSON": true,
+  "workbench.sideBar.location": "right",
+  "workbench.startupEditor": "none",
+  "workbench.tree.indent": 12,
+  "workbench.view.alwaysShowHeaderActions": true,
+  "workbench.editor.pinnedTabsOnSeparateRow": true,
+}
