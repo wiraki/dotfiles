@@ -79,4 +79,11 @@ Host github.com
   PreferredAuthentications publickey
   IdentitiesOnly yes
   IdentityFile "~/.ssh/anonical-github-workPC"
+
+Host github.work
+  User git
+  HostName github.com
+  PreferredAuthentications publickey
+  IdentitiesOnly yes
+  IdentityFile "~/.ssh/id_rsa"
 {{ end }}
