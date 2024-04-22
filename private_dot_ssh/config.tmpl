@@ -54,7 +54,7 @@ Host mpi-hpcl7
   PubkeyAcceptedAlgorithms +ssh-rsa
   HostkeyAlgorithms +ssh-rsa
 
-{{ if eq .chezmoi.hostname "system76-lemur" }}
+{{- if eq .chezmoi.hostname "system76-lemur" }}
 Host workPC
   HostName 10.82.1.21
   User ***REMOVED***
@@ -72,7 +72,8 @@ Host github.com
   PreferredAuthentications publickey
   IdentitiesOnly yes
   IdentityFile "~/.ssh/anonical-github-key"
-{{ else if eq .chezmoi.hostname "workPC" }}
+
+{{- else if eq .chezmoi.hostname "workPC" }}
 Host github.com
   PreferredAuthentications publickey
   IdentitiesOnly yes
