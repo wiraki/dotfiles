@@ -70,9 +70,11 @@ map kitty_mod+alt+e launch --cwd=current --location=vsplit
 
 window_border_width 1px
 draw_minimal_borders yes
-window_margin_width 0
-window_padding_width 1
-active_border_color #676767
+## window_margin_width 0
+## window_padding_width 1
+## window_border_width        (1.0, 'pt')
+window_margin_width        2.5
+window_padding_width       2.5
 inactive_border_color #383e49
 # inactive_border_color #2e3440
 inactive_text_alpha 0.65
@@ -181,5 +183,4 @@ notify_on_cmd_finish invisible 10.0
 
 # focus the previously active kitty OS window
 map ctrl+p nth_os_window -1
-
 include current-theme.conf
