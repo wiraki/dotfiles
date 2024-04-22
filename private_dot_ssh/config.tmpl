@@ -73,7 +73,8 @@ Host github.com
   IdentitiesOnly yes
   IdentityFile "~/.ssh/anonical-github-key"
 
-{{- else if eq .chezmoi.hostname "workPC" }}
+{{ else if eq .chezmoi.hostname "workPC" }}
+
 Host github.com
   PreferredAuthentications publickey
   IdentitiesOnly yes
