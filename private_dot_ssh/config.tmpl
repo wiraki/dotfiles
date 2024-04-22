@@ -67,4 +67,10 @@ Host workPC
 Host gitlab.com
   PreferredAuthentications publickey
   IdentityFile "~/.ssh/id_gitlab_com_ed25519"
+
+Host as-wiraki
+  Host github.com
+  User git
+  IdentitiesOnly yes
+  IdentityFile "id_ed25519_anonical_github"
 {{- end }}
