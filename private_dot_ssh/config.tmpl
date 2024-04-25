@@ -54,6 +54,13 @@ Host mpi-hpcl7
   PubkeyAcceptedAlgorithms +ssh-rsa
   HostkeyAlgorithms +ssh-rsa
 
+Host github.work
+  User git
+  HostName github.com
+  PreferredAuthentications publickey
+  IdentitiesOnly yes
+  IdentityFile "~/.ssh/id_rsa"
+
 {{- if eq .chezmoi.hostname "system76-lemur"}}
 
 Host workPC
@@ -73,6 +80,7 @@ Host github.com
   PreferredAuthentications publickey
   IdentitiesOnly yes
   IdentityFile "~/.ssh/anonical-github-key"
+
 {{else if eq .chezmoi.hostname "workPC"}}
 
 Host github.com
@@ -80,10 +88,4 @@ Host github.com
   IdentitiesOnly yes
   IdentityFile "~/.ssh/anonical-github-workPC"
 
-Host github.work
-  User git
-  HostName github.com
-  PreferredAuthentications publickey
-  IdentitiesOnly yes
-  IdentityFile "~/.ssh/id_rsa"
 {{ end }}
