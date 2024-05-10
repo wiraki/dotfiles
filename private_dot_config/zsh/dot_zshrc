@@ -223,5 +223,8 @@ source ~/software/kitty_keys/kitty_keys.sh
 # Enable Atuin
 eval "$(atuin init zsh)"
 
+# Enable Linuxbrew
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 # Enable starship
 eval "$(starship init zsh)"
