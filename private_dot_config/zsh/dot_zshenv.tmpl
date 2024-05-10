@@ -1,5 +1,39 @@
-{{- if eq .chezmoi.hostname "system76-lemur" -}}
-{{-   include "private_dot_config/zsh/.zshenv_system76lemur" -}}
-{{- else if eq .chezmoi.hostname "workPC" -}}
-{{-   include "private_dot_config/zsh/.zshenv_workPC" -}}
+# Add at the beginning of PATH
+typeset -U PATH path
+path=(~/.local/bin ~/bin ~/.cargo/bin /usr/local/bin $path)
+
+{{- if eq .chezmoi.hostname "workPC"}}
+path=(~/.aspera/cli $path)
+{{- end }}
+
+# Export PATH
+export PATH
+
+# fzf configuration
+if type rg &> /dev/null; then
+  export FZF_DEFAULT_COMMAND='fd --no-ignore-vcs --hidden --exclude ".git" --exclude "conf"'
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+  export FZF_DEFAULT_OPTS="-m --height 70% --layout=reverse --border"
+fi
+
+# Export variables for BAT
+export BAT_THEME="Nord"
+export BAT_PAGER="less"
+
+# Export spicetify
+export SPICETIFY_INSTALL="$HOME/.spicetify"
+export PATH="$PATH:$HOME/.spicetify"
+
+# Set editor
+export EDITOR="nvim -u ~/.config/nvim-kick/init.lua"
+
+{{ if eq .chezmoi.hostname "system76-lemur" -}}
+# Stop telemetry from microsoft dotnet
+export DOTNET_CLI_TELEMETRY_OPTOUT="true"
+
+{{ else if eq .chezmoi.hostname "workPC" -}}
+# nvm configuration
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 {{- end -}}
