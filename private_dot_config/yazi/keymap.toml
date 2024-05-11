@@ -1,0 +1,5 @@
+# Close input boxes but pressing escape once
+[[input.prepend_keymap]]
+on   = [ "<Esc>" ]
+run  = "close"
+desc = "Cancel input"
