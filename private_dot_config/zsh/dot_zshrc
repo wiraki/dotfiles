@@ -219,7 +219,7 @@ eval "$(navi widget zsh)"
 # eval "$(bw completion --shell zsh); compdef _bw bw;"
 
 # Enable zoxide
-eval "$(zoxide init zsh)"
+eval "$(zoxide init --cmd cd zsh)"
 
 # Setup pyenv
 export PYENV_ROOT="$HOME/.pyenv"
