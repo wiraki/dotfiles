@@ -27,3 +27,8 @@ function Manager:render(area)
 		Preview:render(chunks[3]:padding(ui.Padding.xy(1))),
 	})
 end
+
+-- from keyjump.yazi
+require("keyjump"):setup({
+	icon_fg = "#fda1a1",
+})

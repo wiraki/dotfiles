@@ -1,26 +1,19 @@
+"$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
+
 # Close input boxes but pressing escape once
-[[input.prepend_keymap]]
-on   = [ "<Esc>" ]
-run  = "close"
-desc = "Cancel input"
+[input]
 
-# from https://github.com/DreamMaoMao/fg.yazi
-# This option uses ripgrep to output all the lines of all files, and then uses fzf to fuzzy matching.
-[[manager.prepend_keymap]]
-on   = [ "f","g" ]
-run  = "plugin fg"
-desc = "find file by content (fuzzy match)"
+prepend_keymap = [
+	{ on   = [ "<Esc>" ], run  = "close", desc = "Cancel input" }
+]
 
-# The following option passes the input to ripgrep for a match search,
-# reusing the rg search each time the input is changed.
-# This is useful for searching in large folders due to increased speed,
-# but it does not support fuzzy matching.
-[[manager.prepend_keymap]]
-on   = [ "f","G" ]
-run  = "plugin fg --args='rg'"
-desc = "find file by content (ripgrep match)"
+[manager]
 
-[[manager.prepend_keymap]]
-on   = [ "f","f" ]
-run  = "plugin fg --args='fzf'"
-desc = "find file by filename"
+prepend_keymap = [
+	{ on = [ "f","g" ], run = "plugin fg", desc = "find file by content (fuzzy match)" },
+	{ on = [ "f","G" ], run = "plugin fg --args='rg'", desc = "find file by content (ripgrep match)" },
+	{ on = [ "f","f" ], run  = "plugin fg --args='fzf'", desc = "find file by filename" },
+	{ on = [ "i" ], run = "plugin keyjump --args='keep'", desc = "Keyjump (Normal mode)" },
+]
+
+
