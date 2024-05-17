@@ -170,6 +170,10 @@ vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagn
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
+-- Quarto keybinds
+vim.keymap.set("n", "<m-i>", "i```{python}<cr>```<esc>O", { desc = "[I]nsert code chunk" })
+vim.keymap.set("n", "<leader>ci", ":split term://ipython<cr>", { desc = "[C]ode repl [i]python" })
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
@@ -211,6 +215,15 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
+vim.api.nvim_create_autocmd("TermOpen", {
+	desc = "Remove line numbers in terminal",
+	group = vim.api.nvim_create_augroup("kickstart-term", { clear = true }),
+	callback = function()
+		vim.wo.number = false
+		vim.wo.relativenumber = false
+	end,
+})
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -247,6 +260,48 @@ require("lazy").setup({
 	-- "gc" to comment visual regions/lines
 	{ "numToStr/Comment.nvim", opts = {} },
 
+	{
+		"quarto-dev/quarto-nvim",
+		opts = {},
+		dependencies = {
+			"jmbuhr/otter.nvim",
+			opts = {},
+		},
+	},
+
+	{
+		"jpalardy/vim-slime",
+		init = function()
+			vim.g.slime_target = "neovim"
+			vim.g.slime_python_ipython = 1
+			vim.g.slime_dispatch_ipython_pause = 100
+			vim.g.slime_cell_delimiter = "#\\s\\=%%"
+			-- vim.g.slime_bracketed_paste = 1
+			vim.cmd([[
+        function! _EscapeText_quarto(text)
+          if slime#config#resolve("python_ipython") && len(split(a:text,"\n")) > 1
+            return ["%cpaste -q\n", slime#config#resolve("dispatch_ipython_pause"), a:text, "--\n"]
+          else
+            let empty_lines_pat = '\(^\|\n\)\zs\(\s*\n\+\)\+'
+            let no_empty_lines = substitute(a:text, empty_lines_pat, "", "g")
+            let dedent_pat = '\(^\|\n\)\zs'.matchstr(no_empty_lines, '^\s*')
+            let dedented_lines = substitute(no_empty_lines, dedent_pat, "", "g")
+            let except_pat = '\(elif\|else\|except\|finally\)\@!'
+            let add_eol_pat = '\n\s[^\n]\+\n\zs\ze\('.except_pat.'\S\|$\)'
+            return substitute(dedented_lines, add_eol_pat, "\n", "g")
+          end
+        endfunction
+      ]])
+		end,
+		config = function()
+			vim.keymap.set({ "n", "i" }, "<m-cr>c", function()
+				vim.cmd([[ call slime#send_cell() ]])
+			end, { desc = "Send code [c]ell to terminal" })
+			vim.keymap.set({ "n", "i" }, "<m-cr>l", function()
+				vim.cmd([[ call slime#send_cell() ]])
+			end, { desc = "Send code [l]ine to terminal" })
+		end,
+	},
 	-- Here is a more advanced example where we pass configuration
 	-- options to `gitsigns.nvim`. This is equivalent to the following Lua:
 	--    require('gitsigns').setup({ ... })
@@ -578,6 +633,8 @@ require("lazy").setup({
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
+			capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
+
 			-- Enable the following language servers
 			--  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
 			--
@@ -810,6 +867,7 @@ require("lazy").setup({
 					--    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
 				}),
 				sources = {
+					{ name = "otter" },
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
 					{ name = "path" },
