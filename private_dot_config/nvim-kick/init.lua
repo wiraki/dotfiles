@@ -829,6 +829,22 @@ require("lazy").setup({
 		end,
 	},
 
+	{
+		"catppuccin/nvim",
+		priority = 1000,
+		name = "catppuccin",
+		opts = {
+			flavour = "macchiato",
+			dim_inactive = {
+				enabled = true,
+				percentage = 0.15,
+			},
+		},
+		init = function()
+			-- vim.cmd.colorscheme("catppuccin")
+		end,
+	},
+
 	-- Highlight todo, notes, etc in comments
 	{
 		"folke/todo-comments.nvim",
