@@ -853,6 +853,17 @@ require("lazy").setup({
 		opts = { signs = false },
 	},
 
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		opts = {
+			indent = {
+				char = "▏",
+				highlight = "LineNr",
+			},
+		},
+	},
+
 	{ -- Collection of various small independent plugins/modules
 		"echasnovski/mini.nvim",
 		config = function()
