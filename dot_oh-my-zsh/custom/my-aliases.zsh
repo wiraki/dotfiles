@@ -50,4 +50,4 @@ alias qvim='NVIM_APPNAME=nvim-quarto nvim' # Quarto
 alias cdr='cd $(git rev-parse --show-toplevel)'
 
 # Alias for fastfetch with preset
-alias ffetch='fastfetch -c examples/12.jsonc"
+alias ffetch='fastfetch -c examples/12.jsonc'
