@@ -6,6 +6,9 @@ path=(~/.local/bin ~/bin ~/.cargo/bin /usr/local/bin $path)
 path=(~/.aspera/cli $path)
 {{- end }}
 
+# Add Homebrew (linuxbrew) site-functions to fpath (to have zsh-completions for tools installed using brew)
+fpath=($HOMEBREW_PREFIX/share/zsh/site-functions $fpath)
+
 # Export PATH
 export PATH
 
