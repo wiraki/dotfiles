@@ -21,7 +21,7 @@ alias ll="eza --long --icons --all --group --time-style=long-iso --git --color-s
 alias ls="eza -G --icons"
 
 # Alias for bat to remove some decorations
-alias bat="bat -p"
+# alias bat="bat -p"
 
 # Alias to view images in terminal
 # ImageMagick must be installed for icat kitten to work.
