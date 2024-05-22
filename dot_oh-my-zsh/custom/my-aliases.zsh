@@ -46,6 +46,9 @@ alias zvim='NVIM_APPNAME=nvim-lazyvim nvim' # LazyVim
 alias kvim='NVIM_APPNAME=nvim-kick nvim' # Kickstart
 alias qvim='NVIM_APPNAME=nvim-quarto nvim' # Quarto
 
+# Make shorter alias for lazygit
+alias lg='lazygit'
+
 # Alias to cd to the git repo root
 alias cdr='cd $(git rev-parse --show-toplevel)'
 
