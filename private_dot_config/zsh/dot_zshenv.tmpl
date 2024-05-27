@@ -20,8 +20,8 @@ if type rg &> /dev/null; then
 fi
 
 # Export variables for BAT
-export BAT_THEME="Nord"
-export BAT_PAGER="less"
+## export BAT_THEME="Nord"
+## export BAT_PAGER="less"
 
 # Export spicetify
 export SPICETIFY_INSTALL="$HOME/.spicetify"
@@ -30,13 +30,10 @@ export PATH="$PATH:$HOME/.spicetify"
 # Set editor
 export EDITOR="nvim -u ~/.config/nvim-kick/init.lua"
 
-{{ if eq .chezmoi.hostname "system76-lemur" -}}
 # Stop telemetry from microsoft dotnet
 export DOTNET_CLI_TELEMETRY_OPTOUT="true"
 
-{{ else if eq .chezmoi.hostname "workPC" -}}
 # nvm configuration
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-{{- end -}}
