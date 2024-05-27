@@ -29,7 +29,7 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 
 # Load completions
-autoload -U compinit && compinit
+autoload -Uz compinit && compinit
 
 # For better performance: (check zinit documentation)
 zinit cdreplay -q
