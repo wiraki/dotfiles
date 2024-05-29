@@ -258,7 +258,15 @@ require("lazy").setup({
 	--    require('Comment').setup({})
 
 	-- "gc" to comment visual regions/lines
-	{ "numToStr/Comment.nvim", opts = {} },
+	{
+		"numToStr/Comment.nvim",
+		opts = {},
+		config = function()
+			local ft = require("Comment.ft")
+			ft.set("kdl", "//%s")
+			require("Comment").setup()
+		end,
+	},
 
 	{
 		"quarto-dev/quarto-nvim",
