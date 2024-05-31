@@ -35,7 +35,7 @@ alias fp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}
 
 # ripgrep
 alias grep="rg"
-alias rg="rg -S"
+alias rg="rg -SN"
 
 # Alias for advcpmv (cp and mv with progress bar)
 alias cp="/usr/local/bin/advcp -g"
