@@ -1,0 +1,46 @@
+% shell, common
+
+# print columns names (tab-separated) of a file as a numbered list
+head -1 | tr '\t' '\n' | nl | sed 's/^\s*//'
+
+# remove leading whitespace
+sed 's/^\s*//'
+
+# Columns (tab-separated) to rows
+tr '\t' '\n'
+
+# vlookup
+awk 'BEGIN {OFS="\t"} NR==FNR {d[$<first-field>]=$0; next} NR!=FNR {if ($<second-field> in d) print $0, d[$1];}'
+
+# update and upgrade
+sudo nala update && sudo nala upgrade
+
+# update
+sudo nala update
+
+# upgrade
+sudo nala upgrade
+
+# Search installed packages
+sudo nala list --installed | grep
+
+# Force console to print bold text
+echo -e '\033[1mYour Text\033[0m'
+
+# Force console to print italic text
+echo -e '\033[3mYour Text\033[0m'
+
+# Make kitty terminal print available monospace fonts
+kitty +list-fonts --psnames
+
+# Check wifi device
+nmcli dev
+
+# Git restore all current changes
+git restore .
+
+# Read file line by line
+while read -r line || [ -n "$line" ]; do
+
+# Unzip to target directory (will be created)
+unzip file.zip -d target-dir
