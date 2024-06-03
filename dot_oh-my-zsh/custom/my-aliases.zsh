@@ -5,10 +5,10 @@ alias ssh="kitty +kitten ssh"
 alias less="less -S"
 
 # Aliases to login to cnag cluster
-alias login1="ssh ***REMOVED***@login1"
-alias login2="ssh ***REMOVED***@login2"
-alias dt1="ssh ***REMOVED***@dt1"
-alias dt2="ssh ***REMOVED***@dt2"
+alias login1="ssh <user>@login1"
+alias login2="ssh <user>@login2"
+alias dt1="ssh <user>@dt1"
+alias dt2="ssh <user>@dt2"
 
 # Alias for neovim
 alias vi="lvim"
