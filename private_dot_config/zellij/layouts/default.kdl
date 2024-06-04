@@ -22,13 +22,12 @@ layout {
    }
 
     default_tab_template {
-        children
-        pane size=1 borderless=true {
+        pane size=2 borderless=true {
             plugin location="https://github.com/dj95/zjstatus/releases/latest/download/zjstatus.wasm" {
-                format_left   "{mode} {tabs}"
-                format_center "#[fg=#494d64] Zellij: #[fg=#494d64]{session}"
+                format_left   "{mode}#[bg=#181926] {tabs}"
+                format_center "#[bg=#181926,fg=#494d64] Zellij: #[bg=#181926,fg=#494d64]{session}"
                 format_right  "{swap_layout}"
-                format_space  ""
+                format_space  "#[bg=#181926]"
 
                 border_enabled  "false"
                 border_char     "─"
@@ -37,41 +36,38 @@ layout {
 
                 hide_frame_for_single_pane "true"
 
-                mode_normal        "#[bg=#a6da95,fg=#181926,bold] NORMAL "
-                mode_locked        "#[bg=#6e738d,fg=#181926,bold] LOCKED "
-                mode_resize        "#[bg=#8aadf4,fg=#181926,bold] RESIZE "
-                mode_pane          "#[bg=#8aadf4,fg=#181926,bold] PANE "
-                mode_tab           "#[bg=#8aadf4,fg=#181926,bold] TAB "
-                mode_scroll        "#[bg=#8aadf4,fg=#181926,bold] SCROLL "
-                mode_enter_search  "#[bg=#8aadf4,fg=#181926,bold] ENT-SEARCH "
-                mode_search        "#[bg=#8aadf4,fg=#181926,bold] SEARCH "
-                mode_rename_tab    "#[bg=#8aadf4,fg=#181926,bold] RENAME-TAB "
-                mode_rename_pane   "#[bg=#8aadf4,fg=#181926,bold] RENAME-PANE "
-                mode_session       "#[bg=#8aadf4,fg=#181926,bold] SESSION "
-                mode_move          "#[bg=#8aadf4,fg=#181926,bold] MOVE "
-                mode_prompt        "#[bg=#8aadf4,fg=#181926,bold] PROMPT "
-                mode_tmux          "#[bg=#f5a97f,fg=#181926,bold] TMUX "
-
-                // tab_normal   "#[fg=#6C7086] {name} "
-                // tab_active   "#[fg=#9399B2,bold,italic] {name} "
+                mode_normal        "#[bg=#a6da95,fg=#181926,bold] NORMAL#[bg=#181926,fg=#a6da95]"
+                mode_locked        "#[bg=#6e738d,fg=#181926,bold] LOCKED #[bg=#181926,fg=#6e738d]"
+                mode_resize        "#[bg=#8aadf4,fg=#181926,bold] RESIZE#[bg=#181926,fg=#8aadf4]"
+                mode_pane          "#[bg=#8aadf4,fg=#181926,bold] PANE#[bg=#181926,fg=#8aadf4]"
+                mode_tab           "#[bg=#8aadf4,fg=#181926,bold] TAB#[bg=#181926,fg=#8aadf4]"
+                mode_scroll        "#[bg=#8aadf4,fg=#181926,bold] SCROLL#[bg=#181926,fg=#8aadf4]"
+                mode_enter_search  "#[bg=#8aadf4,fg=#181926,bold] ENT-SEARCH#[bg=#181926,fg=#8aadf4]"
+                mode_search        "#[bg=#8aadf4,fg=#181926,bold] SEARCHARCH#[bg=#181926,fg=#8aadf4]"
+                mode_rename_tab    "#[bg=#8aadf4,fg=#181926,bold] RENAME-TAB#[bg=#181926,fg=#8aadf4]"
+                mode_rename_pane   "#[bg=#8aadf4,fg=#181926,bold] RENAME-PANE#[bg=#181926,fg=#8aadf4]"
+                mode_session       "#[bg=#8aadf4,fg=#181926,bold] SESSION#[bg=#181926,fg=#8aadf4]"
+                mode_move          "#[bg=#8aadf4,fg=#181926,bold] MOVE#[bg=#181926,fg=#8aadf4]"
+                mode_prompt        "#[bg=#8aadf4,fg=#181926,bold] PROMPT#[bg=#181926,fg=#8aadf4]"
+                mode_tmux          "#[bg=#f5a97f,fg=#181926,bold] TMUX#[bg=#181926,fg=#f5a97f]"
 
                 // formatting for inactive tabs
-                tab_normal              "#[fg=#6C7086] {index} :: {name} "
-                tab_normal_fullscreen   "#[fg=#6C7086] {index} :: {name} [] "
-                tab_normal_sync         "#[fg=#6C7086] {index} :: {name} <> "
+                tab_normal              "#[bg=#181926,fg=#8bd5ca]#[bg=#8bd5ca,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=#8bd5ca,bold] {name}{floating_indicator}#[bg=#181926,fg=#363a4f,bold]"
+                tab_normal_fullscreen   "#[bg=#181926,fg=#8bd5ca]#[bg=#8bd5ca,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=#8bd5ca,bold] {name}{fullscreen_indicator}#[bg=#181926,fg=#363a4f,bold]"
+                tab_normal_sync         "#[bg=#181926,fg=#8bd5ca]#[bg=#8bd5ca,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=#8bd5ca,bold] {name}{sync_indicator}#[bg=#181926,fg=#363a4f,bold]"
 
                 // formatting for the current active tab
-                tab_active              "#[fg=#9399B2,bold,italic] {name} {floating_indicator}"
-                tab_active_fullscreen   "#[fg=#9399B2,bold,italic] {name} {fullscreen_indicator}"
-                tab_active_sync         "#[fg=#9399B2,bold,italic] {name} {sync_indicator}"
+                tab_active              "#[bg=#181926,fg=#eed49f]#[bg=#eed49f,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=#eed49f,bold] {name}{floating_indicator}#[bg=#181926,fg=#363a4f,bold]"
+                tab_active_fullscreen   "#[bg=#181926,fg=#eed49f]#[bg=#eed49f,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=#eed49f,bold] {name}{fullscreen_indicator}#[bg=#181926,fg=#363a4f,bold]"
+                tab_active_sync         "#[bg=#181926,fg=#eed49f]#[bg=#eed49f,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=#eed49f,bold] {name}{sync_indicator}#[bg=#181926,fg=#363a4f,bold]"
 
                 // separator between the tabs
-                tab_separator           "#[fg=#6C7086,bg=#181825] | "
+                tab_separator           "#[bg=#181926] "
 
                 // indicators
-                tab_sync_indicator       "<> "
-                tab_fullscreen_indicator "[] "
-                tab_floating_indicator   "⬚ "
+                tab_sync_indicator       " "
+                tab_fullscreen_indicator " 󰊓"
+                tab_floating_indicator   " 󰹙"
 
                 command_git_branch_command     "git rev-parse --abbrev-ref HEAD"
                 command_git_branch_format      "#[fg=blue] {stdout} "
@@ -83,5 +79,6 @@ layout {
                 datetime_timezone "Europe/Berlin"
             }
         }
+        children
     }
 }
