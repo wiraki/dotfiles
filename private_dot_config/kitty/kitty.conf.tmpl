@@ -57,7 +57,11 @@ symbol_map U+ea60-U+ec1e Symbols Nerd Font Mono
 # Box Drawing
 symbol_map U+2500-U+259f Symbols Nerd Font Mono
 
-font_size {{ .kitty_font_size }}
+{{ if eq .chezmoi.hostname "system76-lemur" -}}
+font_size 12
+{{- else if eq .chezmoi.hostname "workPC" }}
+font_size 11
+{{- end }}
 
 adjust_line_height 100%
 
