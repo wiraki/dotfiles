@@ -29,14 +29,11 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 
 # Load completions
-autoload -Uz compinit && compinit
-if [[ -n $(print ~/.zcompdump(Nmh+24)) ]] {
-  # Regenerate completions because the dump file hasn't been modified within the last 24 hours
+autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+24); do
   compinit
-} else {
-  # Reuse the existing completions file
-  compinit -C
-}
+done
+compinit -C
 
 # For better performance: (check zinit documentation)
 zinit cdreplay -q
