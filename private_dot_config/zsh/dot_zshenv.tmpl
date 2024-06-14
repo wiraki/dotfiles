@@ -1,6 +1,6 @@
 # Add at the beginning of PATH
 typeset -U PATH path
-path=(~/.local/bin ~/bin ~/.cargo/bin /usr/local/bin $path)
+path=(~/.local/bin ~/bin ~/.cargo/bin ~/.atuin/bin /usr/local/bin $path)
 
 {{- if eq .chezmoi.hostname "workPC"}}
 path=(~/.aspera/cli $path)
