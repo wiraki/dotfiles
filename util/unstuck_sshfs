@@ -4,8 +4,8 @@ while read -r pid; do
 done < <(pgrep sshfs)
 
 # unmount the endpoints
-fusermount -zu ~/dt/scratch
+# fusermount -zu ~/dt/scratch
 fusermount -zu ~/dt/scratch_isilon
 
 # mount the endpoints
-mountdt
+# mountdt
