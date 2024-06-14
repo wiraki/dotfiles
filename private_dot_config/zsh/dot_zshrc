@@ -27,6 +27,7 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
+zinit light qoomon/zsh-lazyload
 
 # Load completions
 autoload -Uz compinit
@@ -109,6 +110,9 @@ eval "$(pyenv init -)"
 # atuins~() eval "$(atuin init zsh)"
 # pyenvs~() eval "$(pyenv init -)"
 # for f in $functions[(I)*s~]; do $f; unfunction $f; done
+
+# Using the zsh-lazyload plugin to lazyload nvm
+lazyload nvm -- 'source ~/.nvm/nvm.sh && source ~/.nvm/bash_completion'
 
 # Configure command used for **<TAB> completion
 _fzf_compgen_path() {
