@@ -305,9 +305,12 @@ require("lazy").setup({
 			vim.keymap.set({ "n", "i" }, "<m-cr>c", function()
 				vim.cmd([[ call slime#send_cell() ]])
 			end, { desc = "Send code [c]ell to terminal" })
-			vim.keymap.set({ "n", "i" }, "<m-cr>l", function()
-				vim.cmd([[ call slime#send_lines() ]])
-			end, { desc = "Send code [l]ine to terminal" })
+			vim.keymap.set(
+				{ "n", "i" },
+				"<m-cr>l",
+				":SlimeSendCurrentLine<cr>",
+				{ desc = "Send code [l]ine to terminal" }
+			)
 		end,
 	},
 	-- Here is a more advanced example where we pass configuration
