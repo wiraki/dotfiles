@@ -944,6 +944,10 @@ require("lazy").setup({
 		},
 	},
 
+	-- {
+	-- 	"github/copilot.vim",
+	-- },
+
 	{
 		"folke/flash.nvim",
 		event = "VeryLazy",
