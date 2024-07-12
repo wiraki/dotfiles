@@ -8,24 +8,56 @@
   "catppuccin.extraBordersEnabled": true,
   "vim.visualModeKeyBindingsNonRecursive": [
     {
-        "before": ["c"],
-        "after": ["\"", "_", "c"]
+      "before": [
+        "c"
+      ],
+      "after": [
+        "\"",
+        "_",
+        "c"
+      ]
     },
     {
-        "before": ["C"],
-        "after": ["\"", "_", "C"]
+      "before": [
+        "C"
+      ],
+      "after": [
+        "\"",
+        "_",
+        "C"
+      ]
     },
     {
-      "before": ["d"],
-      "after": ["\"", "_", "d"]
+      "before": [
+        "d"
+      ],
+      "after": [
+        "\"",
+        "_",
+        "d"
+      ]
     },
     {
-      "before": ["D"],
-      "after": ["\"", "_", "D"]
+      "before": [
+        "D"
+      ],
+      "after": [
+        "\"",
+        "_",
+        "D"
+      ]
     },
     {
-      "before": ["d", "d"],
-      "after": ["\"", "_", "d", "d"]
+      "before": [
+        "d",
+        "d"
+      ],
+      "after": [
+        "\"",
+        "_",
+        "d",
+        "d"
+      ]
     },
     {
       "before": [
@@ -33,7 +65,7 @@
       ],
       "commands": [
         "editor.action.indentLines"
-        ]
+      ]
     },
     {
       "before": [
@@ -45,7 +77,7 @@
     },
   ],
   "[markdown]": {
-      "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
   },
   "[python]": {
     "editor.codeActionsOnSave": {
@@ -76,7 +108,6 @@
   "editor.cursorSurroundingLines": 10,
   "editor.dragAndDrop": false,
   "editor.fontFamily": "'MonoLisa'",
-
   "editor.fontLigatures": "'zero' on, 'ss06' on, 'ss02' on, 'ss08' on, 'ss16' on, 'ss17' on, 'liga' on",
   "editor.fontSize": 14,
   "editor.formatOnPaste": true,
@@ -95,7 +126,6 @@
   "editor.minimap.enabled": true,
   // "editor.fontLigatures": true,
   "editor.minimap.maxColumn": 150,
-  
   "editor.minimap.showSlider": "always",
   "editor.minimap.side": "left",
   "editor.multiCursorModifier": "ctrlCmd",
@@ -109,14 +139,14 @@
   "editor.suggestSelection": "first",
   "editor.tabCompletion": "on",
   "editor.tokenColorCustomizations": {
-      "textMateRules": [
-          {
-              "scope": "comment",
-              "settings": {
-                  "fontStyle": "italic"
-              }
-          }
-      ]
+    "textMateRules": [
+      {
+        "scope": "comment",
+        "settings": {
+          "fontStyle": "italic"
+        }
+      }
+    ]
   },
   "files.eol": "\n",
   "files.exclude": {
@@ -138,7 +168,7 @@
     "suppressGitVersionWarning": true
   },
   "gitlens.defaultTimeFormat": "HH:mm",
-	"jupyter.logKernelOutputSeparately": true,
+  "jupyter.logKernelOutputSeparately": true,
   "jupyter.logging.level": "verbose",
   // controls the dispatching logic for key presses to use either `code` (recommended) or `keycode`.
   "keyboard.dispatch": "keyCode",
@@ -161,11 +191,11 @@
   "quarto.cells.background.dark": "#41455966",
   "remote.SSH.connectTimeout": 30,
   "remote.SSH.remotePlatform": {
-  	"workPC": "linux",
+    "workPC": "linux",
   },
   "remote.extensionKind": {
     "alefragnani.project-manager": [
-    "workspace"
+      "workspace"
     ]
   },
   "bashIde.shellcheckPath": "/usr/bin/shellcheck",
@@ -185,42 +215,84 @@
   "terminal.integrated.smoothScrolling": true,
   "terminal.integrated.tabs.hideCondition": "never",
   "vim.handleKeys": {
-    "<C-d>": false,
+    "<C-d>": true,
     "<C-k>": false,
   },
   "vim.hlsearch": true,
   "vim.leader": "<space>",
   "vim.normalModeKeyBindings": [
-	  {
-	  "before": ["<leader>", "a"],
-	  "commands": ["workbench.action.quickOpen"]
-	  }
+    {
+      "before": [
+        "<leader>",
+        "a"
+      ],
+      "commands": [
+        "workbench.action.quickOpen"
+      ]
+    }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": ["d"],
-      "after": ["\"", "_", "d"]
+      "before": [
+        "d"
+      ],
+      "after": [
+        "\"",
+        "_",
+        "d"
+      ]
     },
     {
-      "before": ["D"],
-      "after": ["\"", "_", "D"]
+      "before": [
+        "D"
+      ],
+      "after": [
+        "\"",
+        "_",
+        "D"
+      ]
     },
     {
-      "before": ["d", "d"],
-      "after": ["\"", "_", "d", "d"]
+      "before": [
+        "d",
+        "d"
+      ],
+      "after": [
+        "\"",
+        "_",
+        "d",
+        "d"
+      ]
     },
     {
-        "before": ["c"],
-        "after": ["\"", "_", "c"]
+      "before": [
+        "c"
+      ],
+      "after": [
+        "\"",
+        "_",
+        "c"
+      ]
     },
     {
-        "before": ["C"],
-        "after": ["\"", "_", "C"]
+      "before": [
+        "C"
+      ],
+      "after": [
+        "\"",
+        "_",
+        "C"
+      ]
     },
     {
       // Pressing the leader key (Spacebar) followed by "a" opens the quick open panel.
-      "before": ["leader", "a"],
-      "commands": ["workbench.action.quickOpen"]
+      "before": [
+        "leader",
+        "a"
+      ],
+      "commands": [
+        "workbench.action.quickOpen"
+      ]
     }
     {
       "before": [
@@ -233,7 +305,7 @@
     {
       "before": [
         "<c-k>"
-        ],
+      ],
       "commands": [
         "editor.action.showhover"
       ]
@@ -241,7 +313,7 @@
     {
       "before": [
         "<leader>",
-          "n"
+        "n"
       ],
       "commands": [
         "workbench.action.togglesidebarvisibility"
