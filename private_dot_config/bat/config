@@ -11,14 +11,14 @@
 --italic-text=always
 
 # Uncomment the following line to disable automatic paging:
-#--paging=never
+--paging=auto
 
 # Uncomment the following line if you are using less version >= 551 and want to
 # enable mouse scrolling support in `bat` when running inside tmux. This might
 # disable text selection, unless you press shift.
 #--pager="less --RAW-CONTROL-CHARS --quit-if-one-screen --mouse"
 
---pager="less -S -R --use-color"
+--pager="less -S -R --use-color --quit-if-one-screen"
 
 # Syntax mappings: map a certain filename pattern to a language.
 #   Example 1: use the C++ syntax for Arduino .ino files
