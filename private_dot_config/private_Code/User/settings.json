@@ -229,6 +229,15 @@
       "commands": [
         "workbench.action.quickOpen"
       ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "/"
+      ],
+      "commands": [
+        "fuzzySearch.activeTextEditor"
+      ]
     }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
@@ -293,7 +302,16 @@
       "commands": [
         "workbench.action.quickOpen"
       ]
-    }
+    },
+    {
+      "before": [
+        "<leader>",
+        "/"
+      ],
+      "commands": [
+        "fuzzySearch.activeTextEditor"
+      ]
+    },
     {
       "before": [
         "<c-n>"
