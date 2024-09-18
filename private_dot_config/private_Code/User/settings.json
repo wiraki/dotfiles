@@ -138,6 +138,8 @@
   "editor.suggestFontSize": 13,
   "editor.suggestSelection": "first",
   "editor.tabCompletion": "on",
+  // Render vertical rulers after a certain number of monospace characters. Use multiple values for multiple rulers. No rulers are drawn if array is empty.
+  "editor.rulers": [80, 90, 100],
   "editor.tokenColorCustomizations": {
     "textMateRules": [
       {
