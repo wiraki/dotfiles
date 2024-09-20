@@ -112,16 +112,15 @@ eval "$(pyenv init -)"
 # for f in $functions[(I)*s~]; do $f; unfunction $f; done
 
 # Using the zsh-lazyload plugin to lazyload nvm
-lazyload nvm -- 'source ~/.nvm/nvm.sh && source ~/.nvm/bash_completion'
+# lazyload nvm -- 'source ~/.nvm/nvm.sh && source ~/.nvm/bash_completion'
+
+# activate mise
+eval "$(/usr/bin/mise activate zsh --shims)"
 
 # Configure command used for **<TAB> completion
 _fzf_compgen_path() {
   fd --no-ignore-vcs --hidden --follow --exclude ".git" --exclude "conf" . "$1"
 }
-
-# # nvm configuration
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
 
 # Shell wrapper that provides the ability to change the current working directory when exiting Yazi
 function yy() {
