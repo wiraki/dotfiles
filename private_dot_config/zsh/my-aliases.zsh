@@ -2,7 +2,7 @@
 alias ssh="kitty +kitten ssh"
 
 # less alias to never chop long lines
-alias less="less -S"
+alias less="less -S -r"
 
 # Alias for neovim
 alias vi="lvim"
@@ -11,8 +11,8 @@ alias vi="lvim"
 # alias code="codium"
 
 # Alias ll
-alias ll="eza --long --icons --all --group --time-style=long-iso --git --color-scale all"
-alias ls="eza -G --icons"
+alias ll="eza --long --icons --all --group --time-style=long-iso --git --color-scale all --color always"
+alias ls="eza -G --icons --color always"
 
 # Alias for bat to remove some decorations
 # alias bat="bat -p"
@@ -48,3 +48,7 @@ alias cdr='cd $(git rev-parse --show-toplevel)'
 
 # Alias for fastfetch with preset
 alias ffetch='fastfetch -c examples/12.jsonc'
+
+# Alias for glow
+alias glow='glow --pager'
+
