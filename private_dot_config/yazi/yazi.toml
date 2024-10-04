@@ -81,6 +81,10 @@ suppress_preload = false
 
 preloaders = [
 ]
+prepend_previewers = [
+	{ name = "*.md", run = "glow" },
+	{ name = "*.qmd", run = "glow" },
+]
 previewers = [
 	{ name = "*/", run = "folder", sync = true },
 	# Code
