@@ -82,6 +82,7 @@ suppress_preload = false
 preloaders = [
 ]
 prepend_previewers = [
+	{ name = "*/",				run = "eza-preview" },
 	{ name = "*.md",			run = "glow" },
 	{ name = "*.qmd",			run = "glow" },
 	{ mime = "application/*zip",            run = "ouch" },
