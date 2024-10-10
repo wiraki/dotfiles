@@ -79,3 +79,9 @@ desc = "Move in relative steps"
 on = ["C"]
 run = "plugin ouch --args=zip"
 desc = "Compress with ouch"
+
+# Use ripdrag to drag file
+[[manager.prepend_keymap]]
+on = ["<C-g>"]
+run = "shell 'ripdrag \"$@\" -x 2>/dev/null &' --confirm"
+desc = "Compress with ouch"
