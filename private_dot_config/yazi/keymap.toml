@@ -74,3 +74,8 @@ desc = "Move in relative steps"
 on = [ "9" ]
 run = "plugin relative-motions --args=9"
 desc = "Move in relative steps"
+
+[[manager.prepend_keymap]]
+on = ["C"]
+run = "plugin ouch --args=zip"
+desc = "Compress with ouch"
