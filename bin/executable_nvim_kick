@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+NVIM_APPNAME=nvim-kick nvim "$@"
+
