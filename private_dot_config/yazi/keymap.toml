@@ -84,4 +84,4 @@ desc = "Compress with ouch"
 [[manager.prepend_keymap]]
 on = ["<C-g>"]
 run = "shell 'ripdrag \"$@\" -x 2>/dev/null &' --confirm"
-desc = "Compress with ouch"
+desc = "Use ripdrag to drag file"
