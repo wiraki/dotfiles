@@ -19,6 +19,9 @@ run = "search rg"
 desc = "Search files by content using ripgrep"
 
 [[manager.prepend_keymap]]
+on = [ "s","j" ]
+run = "plugin searchjump --args='autocd'"
+desc = "searchjump mode"
 
 [[manager.prepend_keymap]]
 on = [ "1" ]

@@ -47,38 +47,9 @@ require("yatline"):setup({
 	part_separator = { open = "", close = "" },
 	inverse_separator = { open = "", close = "" },
 
-	-- style_a = {
-	-- 	fg = "black",
-	-- 	bg_mode = {
-	-- 		normal = "#a89984",
-	-- 		select = "#d79921",
-	-- 		un_set = "#d65d0e"
-	-- 	}
-	-- },
-	-- style_b = { bg = "#665c54", fg = "#ebdbb2" },
-	-- style_c = { bg = "#3c3836", fg = "#a89984" },
-	--
-	-- permissions_t_fg = "green",
-	-- permissions_r_fg = "yellow",
-	-- permissions_w_fg = "red",
-	-- permissions_x_fg = "cyan",
-	-- permissions_s_fg = "darkgray",
-
 	tab_width = 20,
 	tab_use_inverse = false,
 
-	-- selected = { icon = "󰻭", fg = "yellow" },
-	-- copied = { icon = "", fg = "green" },
-	-- cut = { icon = "", fg = "red" },
-	--
-	-- total = { icon = "󰮍", fg = "yellow" },
-	-- succ = { icon = "", fg = "green" },
-	-- fail = { icon = "", fg = "red" },
-	-- found = { icon = "󰮕", fg = "blue" },
-	-- processed = { icon = "󰐍", fg = "green" },
-	--
-	-- show_background = true,
-	--
 	display_header_line = true,
 	display_status_line = true,
 
@@ -129,4 +100,20 @@ require("yatline"):setup({
 	},
 	-- ===
 	theme = catppuccin_theme,
+})
+
+-- Customize searchjump plugin colors to catppuccin
+require("searchjump"):setup({
+	unmatch_fg = "#8087a2",
+	match_str_fg = "#000000",
+	match_str_bg = "#a6da95",
+	first_match_str_fg = "#000000",
+	first_match_str_bg = "#a6da95",
+	lable_fg = "#181926",
+	lable_bg = "#c6a0f6",
+	only_current = false, -- only search the current window
+	show_search_in_statusbar = true,
+	auto_exit_when_unmatch = true,
+	enable_capital_lable = false,
+	search_patterns = {}, -- demo:{"%.e%d+","s%d+e%d+"}
 })
