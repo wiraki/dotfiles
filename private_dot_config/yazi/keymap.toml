@@ -8,6 +8,16 @@ prepend_keymap = [
 ]
 
 [[manager.prepend_keymap]]
+on = [ "<C-p>" ]
+run = "plugin --sync hide-preview"
+desc = "Hide or show preview"
+
+[[manager.prepend_keymap]]
+on = [ "<S-p>" ]
+run = "plugin --sync max-preview"
+desc = "Maximize or restore preview"
+
+[[manager.prepend_keymap]]
 on = [ "K" ]
 run = "seek -3"
 desc = "Scroll up 3 units in the preview"
