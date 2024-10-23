@@ -8,12 +8,22 @@ prepend_keymap = [
 ]
 
 [[manager.prepend_keymap]]
-on = [ "<C-p>" ]
-run = "plugin --sync hide-preview"
+on = [ "<C-1>" ]
+run = "plugin --sync toggle-view --args=parent"
+desc = "Toggle parent view"
+
+[[manager.prepend_keymap]]
+on = [ "<C-2>" ]
+run = "plugin --sync toggle-view --args=current"
+desc = "Toggle parent view"
+
+[[manager.prepend_keymap]]
+on = [ "<C-3>" ]
+run = "plugin --sync toggle-view --args=preview"
 desc = "Hide or show preview"
 
 [[manager.prepend_keymap]]
-on = [ "<S-p>" ]
+on = [ "<S-3>" ]
 run = "plugin --sync max-preview"
 desc = "Maximize or restore preview"
 
