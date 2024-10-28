@@ -5,3 +5,9 @@ encryption = "age"
 
 [diff]
     pager = "delta"
+
+[data]
+    {{ $personalDataPath := joinPath .chezmoi.homeDir ".config/chezmoi/personaldata.toml" -}}
+    {{ if stat $personalDataPath -}}
+    {{ include $personalDataPath -}}
+    {{ end }}
