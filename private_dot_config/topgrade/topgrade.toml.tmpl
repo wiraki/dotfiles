@@ -11,9 +11,9 @@
 pre_sudo = true
 
 # Disable specific steps - same options as the command line flag
-disable = [
-    "system", # because we use nala as a custom command later
-]
+# disable = [
+#     "system",
+# ]
 
 # List of remote machines with Topgrade installed on them
 # remote_topgrades = ["toothless", "pi", "parnas"]
@@ -29,6 +29,7 @@ cleanup = true
 
 # Run specific steps - same options as the command line flag
 only = [
+    "system",
     "brew_cask",
     "brew_formula",
     "cargo",
@@ -36,7 +37,7 @@ only = [
     "spicetify",
     "flatpak",
     "tmux",
-    "code",
+    "vscode",
     "mise",
     "custom_commands",
     "self_update",
@@ -60,7 +61,7 @@ assume_yes = false
 [commands]
 # "Python Environment" = "~/dev/.env/bin/pip install -i https://pypi.python.org/simple -U --upgrade-strategy eager jupyter"
 # "Custom command using interactive shell (unix)" = "-i vim_upgrade"
-"System update via Nala" = "nala update && nala dist-upgrade"
+# "System update via Nala" = "nala update && nala dist-upgrade"
 "Thunderbird sync" = "rsync -avP {{ .workusername -}} @workPC:~/.thunderbird /home/marc/"
 
 [brew]
