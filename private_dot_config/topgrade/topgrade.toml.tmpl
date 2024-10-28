@@ -61,7 +61,7 @@ assume_yes = false
 # "Python Environment" = "~/dev/.env/bin/pip install -i https://pypi.python.org/simple -U --upgrade-strategy eager jupyter"
 # "Custom command using interactive shell (unix)" = "-i vim_upgrade"
 "System update via Nala" = "nala update && nala dist-upgrade"
-"Thunderbird sync" = "rsync -avP {{ .workusername }} @workPC:~/.thunderbird /home/marc/"
+"Thunderbird sync" = "rsync -avP {{ .workusername -}} @workPC:~/.thunderbird /home/marc/"
 
 [brew]
 # For the BrewCask step
