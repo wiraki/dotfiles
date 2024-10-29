@@ -17,12 +17,6 @@ require("full-border"):setup({
 	type = ui.Border.ROUNDED,
 })
 
--- Relative motions
-require("relative-motions"):setup({
-	show_numbers = "relative",
-	show_motion = true,
-})
-
 -- Custome linemode to show both size and mtime
 function Linemode:size_and_mtime()
 	local year = os.date("%Y")
