@@ -62,8 +62,10 @@ assume_yes = false
 # "Python Environment" = "~/dev/.env/bin/pip install -i https://pypi.python.org/simple -U --upgrade-strategy eager jupyter"
 # "Custom command using interactive shell (unix)" = "-i vim_upgrade"
 # "System update via Nala" = "nala update && nala dist-upgrade"
-"Thunderbird sync" = "rsync -avP {{ .workusername -}} @workPC:~/.thunderbird /home/marc/"
 "Yazi Packages update" = "ya pack -u"
+{{- if eq .chezmoi.hostname "system76-lemur" }}
+"Thunderbird sync" = "rsync -avP {{ .workusername -}} @workPC:~/.thunderbird /home/marc/"
+{{- end }}
 
 [brew]
 # For the BrewCask step
