@@ -682,7 +682,7 @@ require("lazy").setup({
 					},
 				},
 				ruff = {},
-				ruff_lsp = {},
+				-- ruff_lsp = {},
 				-- rust_analyzer = {},
 				-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
 				--
