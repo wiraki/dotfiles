@@ -107,3 +107,20 @@ desc = "Compress with ouch"
 on = ["<C-g>"]
 run = "shell 'ripdrag \"$@\" -x 2>/dev/null &' --confirm"
 desc = "Use ripdrag to drag file"
+
+# Eza-preview (fork https://github.com/ahkohd/eza-preview.yazi)
+[[manager.prepend_keymap]]
+on = ["E"]
+run = "plugin eza-preview"
+desc = "Toggle tree/list dir preview"
+
+[[manager.prepend_keymap]]
+on = ["-"]
+run = "plugin eza-preview --args='--inc-level'"
+desc = "Increment tree level in eza-preview"
+
+[[manager.prepend_keymap]]
+on = ["_"]
+run = "plugin eza-preview --args='--dec-level'"
+desc = "Decrement tree level in eza-preview"
+
