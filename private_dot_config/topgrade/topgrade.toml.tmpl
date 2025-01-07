@@ -63,6 +63,7 @@ assume_yes = false
 # "Custom command using interactive shell (unix)" = "-i vim_upgrade"
 # "System update via Nala" = "nala update && nala dist-upgrade"
 "Yazi Packages update" = "ya pack -u"
+"Update Atuin" = "atuin-update"
 {{- if eq .chezmoi.hostname "system76-lemur" }}
 "Thunderbird sync" = "rsync -avP {{ .workusername -}} @workPC:~/.thunderbird /home/marc/"
 {{- end }}
