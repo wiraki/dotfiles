@@ -124,3 +124,8 @@ on = ["_"]
 run = "plugin eza-preview --args='--dec-level'"
 desc = "Decrement tree level in eza-preview"
 
+# Restore plugin
+[[manager.prepend_keymap]]
+on = ["u"]
+run = "plugin restore"
+desc = "Restore last deleted files/folders"
