@@ -9,17 +9,17 @@ prepend_keymap = [
 
 [[manager.prepend_keymap]]
 on = [ "<C-1>" ]
-run = "plugin toggle-view --args=parent"
+run = "plugin toggle-view parent"
 desc = "Toggle parent view"
 
 [[manager.prepend_keymap]]
 on = [ "<C-2>" ]
-run = "plugin toggle-view --args=current"
+run = "plugin toggle-view current"
 desc = "Toggle parent view"
 
 [[manager.prepend_keymap]]
 on = [ "<C-3>" ]
-run = "plugin toggle-view --args=preview"
+run = "plugin toggle-view preview"
 desc = "Hide or show preview"
 
 [[manager.prepend_keymap]]
