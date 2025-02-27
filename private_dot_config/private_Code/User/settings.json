@@ -187,6 +187,7 @@
   "notebook.stickyScroll.enabled": true,
   "notebook.gotoSymbols.showAllSymbols: true",
   "notebook.outline.showCodeCells: false",
+  "notebook.inlineValues": true,
   "problems.showCurrentInStatus": true,
   "projectManager.showProjectNameInStatusBar": true,
   "python.languageServer": "pylance",
