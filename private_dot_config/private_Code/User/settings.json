@@ -428,4 +428,6 @@
   "workbench.tree.indent": 12,
   "workbench.view.alwaysShowHeaderActions": true,
   "workbench.editor.pinnedTabsOnSeparateRow": true,
+  // Whether to enable Next Edit Suggestions (NES).
+  "github.copilot.nextEditSuggestions.enabled": true
 }
