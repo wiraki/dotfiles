@@ -7,3 +7,6 @@ options.clipboard_copy_cmd = "xclip -selection clipboard"
 
 # Default float formatting
 options.disp_float_fmt = "{:.08f}"
+
+# Custom keybinds
+visidata.BaseSheet.bindkey("F3", "rename-sheet")
