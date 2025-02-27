@@ -66,6 +66,7 @@ bindkey '^f' backward-kill-dir
 bindkey '^w' my-backward-kill-word
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
+bindkey '^[[Z' autosuggest-accept # Shift-tab accepts autosuggestion
 
 ########### Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
