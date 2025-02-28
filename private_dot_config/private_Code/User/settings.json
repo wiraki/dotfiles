@@ -430,5 +430,5 @@
   "workbench.view.alwaysShowHeaderActions": true,
   "workbench.editor.pinnedTabsOnSeparateRow": true,
   // Whether to enable Next Edit Suggestions (NES).
-  "github.copilot.nextEditSuggestions.enabled": true
+  "github.copilot.nextEditSuggestions.enabled": false
 }
