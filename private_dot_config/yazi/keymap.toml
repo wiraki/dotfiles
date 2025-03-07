@@ -53,53 +53,8 @@ run = "plugin searchjump -- autocd"
 desc = "searchjump mode"
 
 [[manager.prepend_keymap]]
-on = [ "1" ]
-run = "plugin relative-motions --args=1"
-desc = "Move in relative steps"
-
-[[manager.prepend_keymap]]
-on = [ "2" ]
-run = "plugin relative-motions --args=2"
-desc = "Move in relative steps"
-
-[[manager.prepend_keymap]]
-on = [ "3" ]
-run = "plugin relative-motions --args=3"
-desc = "Move in relative steps"
-
-[[manager.prepend_keymap]]
-on = [ "4" ]
-run = "plugin relative-motions --args=4"
-desc = "Move in relative steps"
-
-[[manager.prepend_keymap]]
-on = [ "5" ]
-run = "plugin relative-motions --args=5"
-desc = "Move in relative steps"
-
-[[manager.prepend_keymap]]
-on = [ "6" ]
-run = "plugin relative-motions --args=6"
-desc = "Move in relative steps"
-
-[[manager.prepend_keymap]]
-on = [ "7" ]
-run = "plugin relative-motions --args=7"
-desc = "Move in relative steps"
-
-[[manager.prepend_keymap]]
-on = [ "8" ]
-run = "plugin relative-motions --args=8"
-desc = "Move in relative steps"
-
-[[manager.prepend_keymap]]
-on = [ "9" ]
-run = "plugin relative-motions --args=9"
-desc = "Move in relative steps"
-
-[[manager.prepend_keymap]]
 on = ["C"]
-run = "plugin ouch --args=zip"
+run = "plugin ouch zip"
 desc = "Compress with ouch"
 
 # Use ripdrag to drag file
@@ -116,12 +71,12 @@ desc = "Toggle tree/list dir preview"
 
 [[manager.prepend_keymap]]
 on = ["-"]
-run = "plugin eza-preview --args='--inc-level'"
+run = "plugin eza-preview '--inc-level'"
 desc = "Increment tree level in eza-preview"
 
 [[manager.prepend_keymap]]
 on = ["_"]
-run = "plugin eza-preview --args='--dec-level'"
+run = "plugin eza-preview '--dec-level'"
 desc = "Decrement tree level in eza-preview"
 
 # Restore plugin
