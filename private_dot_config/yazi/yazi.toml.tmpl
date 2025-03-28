@@ -80,6 +80,7 @@ suppress_preload = false
 [plugin]
 
 preloaders = [
+	{ name = "/home/{{ .chezmoi.username }}/dt/**", run = "noop" },
 ]
 prepend_preloaders = [
 	# Office documents
@@ -107,6 +108,7 @@ prepend_previewers = [
 	{ name = "*.docx", run = "office" },
 ]
 previewers = [
+	{ name = "/home/{{ .chezmoi.username }}/dt/**", run = "noop" },
 	{ name = "*/", run = "folder", sync = true },
 	# Code
 	{ mime = "text/*", run = "code" },
