@@ -7,25 +7,41 @@ prepend_keymap = [
 	{ on   = [ "<Esc>" ], run  = "close", desc = "Cancel input" }
 ]
 
+
 [[manager.prepend_keymap]]
 on = [ "<C-1>" ]
-run = "plugin toggle-view parent"
-desc = "Toggle parent view"
+run = "plugin toggle-pane min-parent"
+desc = "Minimize or restore parent pane"
 
 [[manager.prepend_keymap]]
 on = [ "<C-2>" ]
-run = "plugin toggle-view current"
-desc = "Toggle parent view"
+run = "plugin toggle-pane min-current"
+desc = "Minimize or restore current pane"
 
 [[manager.prepend_keymap]]
 on = [ "<C-3>" ]
-run = "plugin toggle-view preview"
-desc = "Hide or show preview"
+run = "plugin toggle-pane min-preview"
+desc = "Minimize or restore preview pane"
 
 [[manager.prepend_keymap]]
-on = [ "<S-3>" ]
-run = "plugin max-preview"
-desc = "Maximize or restore preview"
+on = [ "!" ]
+run = "plugin toggle-pane max-parent"
+desc = "Maximize or restore parent pane"
+
+[[manager.prepend_keymap]]
+on = [ "@" ]
+run = "plugin toggle-pane max-current"
+desc = "Maximize or restore current pane"
+
+[[manager.prepend_keymap]]
+on = [ "#" ]
+run = "plugin toggle-pane max-preview"
+desc = "Maximize or restore preview pane"
+
+[[manager.prepend_keymap]]
+on = [ "<C-0>" ]
+run = "plugin toggle-pane reset"
+desc = "Reset to user's configured pane ratios"
 
 [[manager.prepend_keymap]]
 on = [ "K" ]
