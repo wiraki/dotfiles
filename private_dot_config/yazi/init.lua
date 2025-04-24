@@ -111,3 +111,6 @@ require("searchjump"):setup({
 	enable_capital_lable = false,
 	search_patterns = {}, -- demo:{"%.e%d+","s%d+e%d+"}
 })
+
+-- enable git plugin
+require("git"):setup()
