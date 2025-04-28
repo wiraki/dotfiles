@@ -83,12 +83,6 @@ preloaders = [
 	{ name = "/home/{{ .chezmoi.username }}/dt/**", run = "noop" },
 ]
 prepend_preloaders = [
-	# Office documents
-	{ mime = "application/openxmlformats-officedocument.*", run = "office" },
-	{ mime = "application/oasis.opendocument.*", run = "office" },
-	{ mime = "application/ms-*", run = "office" },
-	{ mime = "application/msword", run = "office" },
-	{ name = "*.docx", run = "office" },
 ]
 prepend_previewers = [
 	{ name = "*/",				run = "eza-preview" },
@@ -100,12 +94,6 @@ prepend_previewers = [
 	{ mime = "application/7z-compressed", run = "ouch" },
 	{ mime = "application/rar",           run = "ouch" },
 	{ mime = "application/xz",            run = "ouch" },
-	# Office documents
-	{ mime = "application/openxmlformats-officedocument.*", run = "office" },
-	{ mime = "application/opendocument.*", run = "office" },
-	{ mime = "application/ms-*", run = "office" },
-	{ mime = "application/msword", run = "office" },
-	{ name = "*.docx", run = "office" },
 ]
 previewers = [
 	{ name = "/home/{{ .chezmoi.username }}/dt/**", run = "noop" },
