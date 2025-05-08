@@ -32,6 +32,9 @@ for dump in ~/.zcompdump(N.mh+24); do
 done
 compinit -C
 
+# Add pixi completions
+#eval "$(pixi completion --shell zsh)"
+
 # Add zsh plugins
 zinit light Aloxaf/fzf-tab
 zinit light zsh-users/zsh-syntax-highlighting
