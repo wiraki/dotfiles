@@ -42,4 +42,7 @@ path=(/usr/local/go/bin ~/go/bin $path)
 # Add pixi to path
 path=(~/.pixi/bin $path)
 
+# Export variable for tmux plugin manager
+export TMUX_PLUGIN_MANAGER_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/tmux/plugins/"
+
 export PATH
