@@ -8,95 +8,95 @@ prepend_keymap = [
 ]
 
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "<C-1>" ]
 run = "plugin toggle-pane min-parent"
 desc = "Minimize or restore parent pane"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "<C-2>" ]
 run = "plugin toggle-pane min-current"
 desc = "Minimize or restore current pane"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "<C-3>" ]
 run = "plugin toggle-pane min-preview"
 desc = "Minimize or restore preview pane"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "!" ]
 run = "plugin toggle-pane max-parent"
 desc = "Maximize or restore parent pane"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "@" ]
 run = "plugin toggle-pane max-current"
 desc = "Maximize or restore current pane"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "#" ]
 run = "plugin toggle-pane max-preview"
 desc = "Maximize or restore preview pane"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "<C-0>" ]
 run = "plugin toggle-pane reset"
 desc = "Reset to user's configured pane ratios"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "K" ]
 run = "seek -3"
 desc = "Scroll up 3 units in the preview"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "J" ]
 run = "seek 3"
 desc = "Scroll down 3 units in the preview"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "s","d" ]
 run = "search fd"
 desc = "Search files by name using fd"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "s","g" ]
 run = "search rg"
 desc = "Search files by content using ripgrep"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "s","j" ]
 run = "plugin searchjump -- autocd"
 desc = "searchjump mode"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = ["C"]
 run = "plugin ouch zip"
 desc = "Compress with ouch"
 
 # Use ripdrag to drag file
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = ["<C-g>"]
 run = "shell 'ripdrag \"$@\" -x 2>/dev/null &' --confirm"
 desc = "Use ripdrag to drag file"
 
 # Eza-preview (fork https://github.com/ahkohd/eza-preview.yazi)
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = ["E"]
 run = "plugin eza-preview"
 desc = "Toggle tree/list dir preview"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = ["-"]
 run = "plugin eza-preview '--inc-level'"
 desc = "Increment tree level in eza-preview"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = ["_"]
 run = "plugin eza-preview '--dec-level'"
 desc = "Decrement tree level in eza-preview"
 
 # Restore plugin
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = ["u"]
 run = "plugin restore"
 desc = "Restore last deleted files/folders"
