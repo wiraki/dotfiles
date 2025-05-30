@@ -4,6 +4,9 @@
   ],
   "terminal.external.linuxExec": "~/.local/kitty.app/bin/kitty",
   "workbench.colorTheme": "Catppuccin Macchiato",
+  "workbench.colorCustomizations": {
+    "notebook.cellEditorBackground": "#363a4f",
+  },
   "catppuccin.accentColor": "yellow",
   "catppuccin.extraBordersEnabled": true,
   "vim.visualModeKeyBindingsNonRecursive": [
@@ -191,7 +194,8 @@
   "problems.showCurrentInStatus": true,
   "projectManager.showProjectNameInStatusBar": true,
   "python.languageServer": "pylance",
-  "quarto.cells.background.dark": "#41455966",
+  "quarto.cells.background.color": "default",
+  "quarto.cells.background.darkDefault": "#363a4f99",
   "remote.SSH.connectTimeout": 30,
   "remote.SSH.remotePlatform": {
     "workPC": "linux",
@@ -416,9 +420,6 @@
   "window.titleBarStyle": "custom",
   "window.density.editorTabHeight": "compact",
   "workbench.activityBar.location": "default",
-  "workbench.colorCustomizations": {
-    "notebook.cellEditorBackground": "#41455966"
-  },
   "workbench.editor.enablePreview": false,
   "workbench.enableExperiments": false,
   "workbench.iconTheme": "eq-material-theme-icons-light",
