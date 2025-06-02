@@ -62,7 +62,7 @@ assume_yes = false
 # "Python Environment" = "~/dev/.env/bin/pip install -i https://pypi.python.org/simple -U --upgrade-strategy eager jupyter"
 # "Custom command using interactive shell (unix)" = "-i vim_upgrade"
 # "System update via Nala" = "nala update && nala dist-upgrade"
-"Yazi Packages update" = "ya pack -u"
+"Yazi Packages update" = "ya pkg upgrade"
 "Update Atuin" = "atuin-update"
 {{- if eq .chezmoi.hostname "system76-lemur" }}
 "Thunderbird sync" = "rsync -avP {{ .workusername -}} @workPC:~/.thunderbird /home/marc/"
