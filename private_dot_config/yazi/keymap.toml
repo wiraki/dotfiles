@@ -67,6 +67,8 @@ desc = "Search files by content using ripgrep"
 on = [ "s","j" ]
 run = "plugin searchjump -- autocd"
 desc = "searchjump mode"
+# run  = "plugin jump-to-char"
+# desc = "Jump to char"
 
 [[mgr.prepend_keymap]]
 on = ["C"]
