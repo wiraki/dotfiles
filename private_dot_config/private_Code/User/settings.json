@@ -83,10 +83,12 @@
     "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
   },
   "[python]": {
+    "python.linting.lintOnSave": true,
+    "python.linting.enabled": true,
     "editor.codeActionsOnSave": {
-      "source.organizeImports": true
+      "source.organizeImports": true,
     },
-    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.defaultFormatter": "charliermarsh.ruff",
     "editor.formatOnPaste": false,
     "editor.formatOnSaveMode": "file"
   },
@@ -194,6 +196,7 @@
   "problems.showCurrentInStatus": true,
   "projectManager.showProjectNameInStatusBar": true,
   "python.languageServer": "pylance",
+  "python.analysis.languageServerMode": "full",
   "quarto.cells.background.color": "default",
   "quarto.cells.background.darkDefault": "#363a4f99",
   "remote.SSH.connectTimeout": 30,
