@@ -1,4 +1,7 @@
 {
+  "python.analysis.typeCheckingMode": "off",
+  "todo-tree.general.statusBar": "tags",
+  "todo-tree.general.showActivityBarBadge": true,
   "projectManager.git.baseFolders": [
     "~/dt1/scratch/workspace"
   ],
@@ -434,5 +437,13 @@
   "workbench.view.alwaysShowHeaderActions": true,
   "workbench.editor.pinnedTabsOnSeparateRow": true,
   // Whether to enable Next Edit Suggestions (NES).
-  "github.copilot.nextEditSuggestions.enabled": false
+  "github.copilot.nextEditSuggestions.enabled": false,
+  "[latex]": {
+    "editor.defaultFormatter": "James-Yu.latex-workshop",
+    "git.blame.editorDecoration.enabled": false,
+    "gitlens.currentLine.enabled": false,
+    "gitlens.codeLens.authors.enabled": false,
+    "gitlens.codeLens.recentChange.enabled": false,
+  },
+  "latex-workshop.formatting.latex": "latexindent"
 }
