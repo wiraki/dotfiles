@@ -63,6 +63,7 @@ return {
         pickers = {
           find_files = {
             hidden = true,
+            no_ignore = true, -- Show hidden files and files ignored by .gitignore
           },
         },
         extensions = {
