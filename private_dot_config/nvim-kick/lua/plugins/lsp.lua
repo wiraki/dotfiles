@@ -151,18 +151,38 @@ return {
             end, "[T]oggle Inlay [H]ints")
           end
           if client and client.name == "pyright" then
-            -- Check if we're in a Poetry project
+            -- Check if we're in a Python project with pyproject.toml
             if vim.fn.filereadable("pyproject.toml") == 1 then
-              local handle = io.popen("poetry env info --path 2>/dev/null")
-              if handle then
-                local poetry_venv = handle:read("*a"):gsub("%s+", "")
-                handle:close()
-
-                if poetry_venv and poetry_venv ~= "" then
-                  print("Detected Poetry environment: " .. poetry_venv)
-                  client.config.settings.python.pythonPath = poetry_venv .. "/bin/python"
-                  client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+              local python_path = nil
+              
+              -- Try uv first (check for .venv directory)
+              if vim.fn.isdirectory(".venv") == 1 then
+                python_path = vim.fn.getcwd() .. "/.venv/bin/python"
+                if vim.fn.filereadable(python_path) == 1 then
+                  print("Detected uv environment: " .. python_path)
+                else
+                  python_path = nil
                 end
+              end
+              
+              -- Fallback to Poetry if uv environment not found
+              if not python_path then
+                local handle = io.popen("poetry env info --path 2>/dev/null")
+                if handle then
+                  local poetry_venv = handle:read("*a"):gsub("%s+", "")
+                  handle:close()
+
+                  if poetry_venv and poetry_venv ~= "" then
+                    python_path = poetry_venv .. "/bin/python"
+                    print("Detected Poetry environment: " .. poetry_venv)
+                  end
+                end
+              end
+              
+              -- Apply the detected Python path
+              if python_path then
+                client.config.settings.python.pythonPath = python_path
+                client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
               end
             end
           end
