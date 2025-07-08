@@ -99,15 +99,15 @@ zstyle ':fzf-tab:*' print-query ctrl-c
 zstyle ':fzf-tab:complete:((micro|cut|cp|mv|rm|bat|less|code|nano|atom|vd|nvim|kvim|zvim):argument-rest|kate:*)' fzf-preview 'bat --color=always -- $realpath 2>/dev/null || ls --color=always -- $realpath'
 
 # Setup pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+# export PYENV_ROOT="$HOME/.pyenv"
+# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(navi widget zsh)"
 eval "$(atuin init zsh)"
-eval "$(pyenv init -)"
+# eval "$(pyenv init -)"
 ## Use the function wrappers below when benchmarking with zprof
 # brews~() eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 # fzfs~() eval "$(fzf --zsh)"
