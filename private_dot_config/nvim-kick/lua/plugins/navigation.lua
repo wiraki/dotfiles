@@ -53,4 +53,39 @@ return {
       { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
     },
   },
+
+  -- [[ File Tagging and Project Navigation ]]
+  {
+    "cbochs/grapple.nvim",
+    event = { "BufReadPost", "BufNewFile" },
+    opts = {
+      scope = "git",
+      quick_select = "123456789",
+      icons = true,
+    },
+    keys = {
+      { "<leader>gt", "<cmd>Grapple toggle<cr>", desc = "Toggle grapple tag" },
+      { "<leader>gn", "<cmd>Grapple cycle_tags next<cr>", desc = "Next tagged file" },
+      { "<leader>gp", "<cmd>Grapple cycle_tags prev<cr>", desc = "Previous tagged file" },
+      { "<leader>gm", "<cmd>Grapple open_tags<cr>", desc = "Open grapple menu" },
+    },
+  },
+
+  -- [[ Visual Navigation History ]]
+  {
+    "cbochs/portal.nvim",
+    event = "VeryLazy",
+    opts = {
+      labels = { "j", "k", "h", "l", "a", "s", "d", "f" },
+      max_results = 10,
+      lookback = 100,
+      select_first = false,
+    },
+    keys = {
+      { "<leader>j", "<cmd>Portal jumplist backward<cr>", desc = "Portal jumplist backward" },
+      { "<leader>J", "<cmd>Portal jumplist forward<cr>", desc = "Portal jumplist forward" },
+      { "<leader>k", "<cmd>Portal changelist backward<cr>", desc = "Portal changelist backward" },
+      { "<leader>K", "<cmd>Portal changelist forward<cr>", desc = "Portal changelist forward" },
+    },
+  },
 }
