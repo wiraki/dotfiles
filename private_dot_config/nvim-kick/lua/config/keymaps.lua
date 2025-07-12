@@ -39,3 +39,15 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 -- Better indenting (prevents from losing visual selection upon indenting)
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
+
+-- TODO-Portal integration keymaps
+local todo_portals = require("config.todo-portals")
+
+vim.keymap.set("n", "<leader>pt", todo_portals.create_buffer_todo_portals, { desc = "Portal: TODOs in buffer" })
+
+vim.keymap.set("n", "<leader>pT", function()
+  todo_portals.create_project_todo_portals()
+end, { desc = "Portal: TODOs in project" })
+
+vim.keymap.set("n", "]t", todo_portals.next_todo, { desc = "Next TODO" })
+vim.keymap.set("n", "[t", todo_portals.prev_todo, { desc = "Previous TODO" })
