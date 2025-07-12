@@ -28,8 +28,8 @@ return {
     opts = {
       flavour = "macchiato",
       dim_inactive = {
-        enabled = true,
-        percentage = 0.15,
+        enabled = false,
+        percentage = 0.1,
       },
     },
     init = function()
@@ -98,5 +98,13 @@ return {
         },
       })
     end,
+  },
+  {
+    "tadaa/vimade",
+    event = "VeryLazy",
+    opts = {
+      ncmode = "windows",
+      fadelevel = 0.6,
+    },
   },
 }
