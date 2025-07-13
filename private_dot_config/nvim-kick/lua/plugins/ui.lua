@@ -40,9 +40,18 @@ return {
   -- Highlight todo, notes, etc in comments
   {
     "folke/todo-comments.nvim",
-    event = "VimEnter",
+    event = { "BufReadPost", "BufNewFile" },
     dependencies = { "nvim-lua/plenary.nvim" },
-    opts = { signs = false },
+    opts = {
+      signs = false,
+      highlight = {
+        before = "",
+        keyword = "wide",
+        after = "fg",
+        pattern = [[.*<(KEYWORDS)\s*:]],
+        comments_only = true,
+      },
+    },
   },
 
   {
