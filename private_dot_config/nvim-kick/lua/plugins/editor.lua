@@ -96,6 +96,41 @@ return {
         return "%2l:%-2v"
       end
 
+      -- Minimap for buffer overview
+      require("mini.map").setup({
+        integrations = {
+          require("mini.map").gen_integration.gitsigns(),
+        },
+        symbols = {
+          encode = nil,
+          scroll_line = "█",
+          scroll_view = "┃",
+        },
+        window = {
+          focusable = false,
+          side = "right",
+          width = 10,
+          winblend = 25,
+          zindex = 10,
+        },
+      })
+      -- Auto-open minimap
+      require("mini.map").open()
+
+      -- Start screen
+      require("mini.starter").setup({
+        evaluate_single = true,
+        header = nil,
+        footer = nil,
+        content_hooks = {
+          require("mini.starter").gen_hook.adding_bullet("▌ "),
+          require("mini.starter").gen_hook.indexing("all", { "Builtin actions" }),
+          require("mini.starter").gen_hook.padding(3, 2),
+        },
+        query_updaters = "abcdefghijklmnopqrstuvwxyz0123456789_-.",
+        silent = false,
+      })
+
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,

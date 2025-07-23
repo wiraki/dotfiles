@@ -209,3 +209,9 @@ vim.keymap.set("n", "<leader>sq", function()
     :find()
 end, { desc = "Search todo comments in current buffer" })
 vim.keymap.set("n", "<leader>sQ", "<cmd>TodoTelescope<CR>", { desc = "[S]earch TODOs in project ([Q]uickfix)" })
+
+-- Minimap controls
+vim.keymap.set("n", "<leader>mm", function() require("mini.map").toggle() end, { desc = "Toggle [M]ini[m]ap" })
+vim.keymap.set("n", "<leader>mo", function() require("mini.map").open() end, { desc = "[M]inimap [O]pen" })
+vim.keymap.set("n", "<leader>mc", function() require("mini.map").close() end, { desc = "[M]inimap [C]lose" })
+vim.keymap.set("n", "<leader>mr", function() require("mini.map").refresh() end, { desc = "[M]inimap [R]efresh" })
