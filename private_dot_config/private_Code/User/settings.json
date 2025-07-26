@@ -445,7 +445,7 @@
     "gitlens.codeLens.authors.enabled": false,
     "gitlens.codeLens.recentChange.enabled": false,
   },
-  "latex-workshop.formatting.latex": "latexindent"
+  "latex-workshop.formatting.latex": "latexindent",
+  "latex-workshop.formatting.latexindent.path": "/usr/local/texlive/2025/bin/x86_64-linux/latexindent",
   "latex-utilities.countWord.path": "/usr/local/texlive/2025/bin/x86_64-linux/texcount"
-
 }
