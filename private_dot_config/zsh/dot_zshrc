@@ -89,8 +89,9 @@ zstyle ':fzf-tab:*' single-group color header
 # Add directory preview when completing cd or ls etc.
 zstyle ':fzf-tab:complete:(cd|ls|ll|lsd|lsdd|j|eza):*' fzf-preview '[[ -d $realpath ]] && eza -1 --color=always $realpath'
 # Increase fzf prompt size
-zstyle ':fzf-tab:*' fzf-pad 5
-zstyle ':fzf-tab:*' fzf-min-height 20
+zstyle ':fzf-tab:*' fzf-pad 1
+zstyle ':fzf-tab:*' fzf-min-height 7
+zstyle ':fzf-tab:*' fzf-flags '--height=~17'
 # Accept input as result when ctrl-c
 zstyle ':fzf-tab:*' print-query ctrl-c
 # Accept selected entry on enter (disabled for now)
