@@ -210,6 +210,24 @@ return {
       local servers = {
         -- clangd = {},
         -- gopls = {},
+        texlab = {
+          settings = {
+            texlab = {
+              build = {
+                executable = 'latexmk',
+                args = { '-pdf', '-interaction=nonstopmode', '-synctex=1', '%f' },
+                onSave = false, -- Don't auto-compile on save
+              },
+              forwardSearch = {
+                executable = 'zathura',
+                args = { '--synctex-forward', '%l:1:%f', '%p' },
+              },
+              chktex = {
+                onOpenAndSave = false, -- Disable automatic linting
+              },
+            },
+          },
+        },
         pyright = {
           root_dir = function(fname)
             local root = require("lspconfig.util").root_pattern("pyproject.toml", "setup.py", ".git")(fname)

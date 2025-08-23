@@ -8,8 +8,8 @@ return {
     -- optional: provides snippets for the snippet source
     dependencies = {
       "rafamadriz/friendly-snippets",
-      -- If you use vs-code style snippets, add this:
-      -- 'L3MON4D3/LuaSnip',
+      -- Add LuaSnip for LaTeX snippets
+      'L3MON4D3/LuaSnip',
       -- GitHub Copilot integration for blink.cmp
       "giuxtaposition/blink-cmp-copilot",
     },
