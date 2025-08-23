@@ -29,6 +29,7 @@ return {
       end,
       formatters_by_ft = {
         lua = { "stylua" },
+        tex = { "latexindent" },
         -- Conform can also run multiple formatters sequentially
         python = function(bufnr)
           if require("conform").get_formatter_info("ruff_format", bufnr).available then
