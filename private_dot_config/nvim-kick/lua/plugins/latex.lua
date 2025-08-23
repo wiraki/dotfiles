@@ -22,6 +22,10 @@ return {
       -- Enable folding
       vim.g.vimtex_fold_enabled = 1
 
+      -- Enable formatting and indentation
+      vim.g.vimtex_format_enabled = 1
+      vim.g.vimtex_indent_enabled = 1
+
       -- Concealment settings (optional - hides LaTeX commands for cleaner view)
       vim.g.vimtex_syntax_conceal = {
         accents = 1,
@@ -65,6 +69,16 @@ return {
     dependencies = { "nvim-telescope/telescope.nvim" },
     ft = "tex",
     config = function()
+      require("telescope").setup({
+        extensions = {
+          bibtex = {
+            custom_formats = {
+              {id = 'autocite', cite_marker = '\\autocite{%s}'}
+            },
+            format = 'autocite'
+          }
+        }
+      })
       require("telescope").load_extension("bibtex")
     end,
   },
