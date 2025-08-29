@@ -102,3 +102,21 @@ desc = "Decrement tree level in eza-preview"
 on = ["u"]
 run = "plugin restore"
 desc = "Restore last deleted files/folders"
+
+# zoom.yazi plugin to zoom into images in preview
+[[mgr.prepend_keymap]]
+on   = "+"
+run  = "plugin zoom 1"
+desc = "Zoom in hovered file"
+
+[[mgr.prepend_keymap]]
+on   = "-"
+run  = "plugin zoom -1"
+desc = "Zoom out hovered file"
+
+{{ if eq .chezmoi.hostname "system76-lemur" -}}
+[[mgr.prepend_keymap]]
+on = ["<C-k>"]
+run = "plugin kdeconnect-send"
+desc = "Send selected files via KDE Connect"
+{{- end }}
