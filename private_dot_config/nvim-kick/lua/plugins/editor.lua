@@ -27,7 +27,7 @@ return {
 
   -- Collection of various small independent plugins/modules
   {
-    "echasnovski/mini.nvim",
+    "nvim-mini/mini.nvim",
     config = function()
       -- Better Around/Inside textobjects
       require("mini.ai").setup({ n_lines = 500 })
@@ -132,7 +132,7 @@ return {
       })
 
       -- ... and there is more!
-      --  Check out: https://github.com/echasnovski/mini.nvim
+      --  Check out: https://github.com/nvim-mini/mini.nvim
     end,
     init = function()
       vim.api.nvim_create_autocmd("FileType", {
