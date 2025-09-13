@@ -96,6 +96,8 @@ return {
         { "<leader>t_", hidden = true },
         { "<leader>w", group = "[W]orkspace" },
         { "<leader>w_", hidden = true },
+        { "<leader>x", group = "E[x]ecute" },
+        { "<leader>x_", hidden = true },
         { "<leader>p", group = "[P]ortal" },
         { "<leader>p_", hidden = true },
         { "<leader>h", group = "Git [H]unk" },
