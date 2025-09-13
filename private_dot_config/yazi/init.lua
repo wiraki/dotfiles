@@ -1,26 +1,3 @@
-function Status:name()
-	local h = self._tab.current.hovered
-	if not h then
-		return ui.Line({})
-	end
-
-	local url = h.url
-	local home_prefix = "/home/" .. tostring(ya.user_name())
-	if not h then
-		return ui.Line({})
-	end
-	if url:starts_with(home_prefix) then
-		url = Url("~/"):join(url:strip_prefix(home_prefix))
-	end
-
-	local linked = ""
-	if h.link_to ~= nil then
-		linked = " -> " .. tostring(h.link_to)
-	end
-
-	return ui.Line(" " .. url .. linked)
-end
-
 -- Full border
 require("full-border"):setup({
 	-- Available values: ui.Border.PLAIN, ui.Border.ROUNDED
@@ -85,7 +62,7 @@ require("yatline"):setup({
 				{ type = "string", custom = false, name = "hovered_size" },
 			},
 			section_c = {
-				{ type = "string", custom = false, name = "hovered_name" },
+				{ type = "string", custom = false, name = "hovered_path" },
 				{ type = "coloreds", custom = false, name = "count" },
 			},
 		},
