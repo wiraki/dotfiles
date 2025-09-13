@@ -6,7 +6,9 @@ function Status:name()
 
 	local url = h.url
 	local home_prefix = "/home/" .. tostring(ya.user_name())
-
+	if not h then
+		return ui.Line({})
+	end
 	if url:starts_with(home_prefix) then
 		url = Url("~/"):join(url:strip_prefix(home_prefix))
 	end
@@ -15,6 +17,7 @@ function Status:name()
 	if h.link_to ~= nil then
 		linked = " -> " .. tostring(h.link_to)
 	end
+
 	return ui.Line(" " .. url .. linked)
 end
 
