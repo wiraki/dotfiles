@@ -4,11 +4,18 @@ function Status:name()
 		return ui.Line({})
 	end
 
+	local url = h.url
+	local home_prefix = "/home/" .. tostring(ya.user_name())
+
+	if url:starts_with(home_prefix) then
+		url = Url("~/"):join(url:strip_prefix(home_prefix))
+	end
+
 	local linked = ""
 	if h.link_to ~= nil then
 		linked = " -> " .. tostring(h.link_to)
 	end
-	return ui.Line(" " .. h.name .. linked)
+	return ui.Line(" " .. url .. linked)
 end
 
 -- Full border
