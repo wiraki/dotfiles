@@ -96,26 +96,6 @@ return {
         return "%2l:%-2v"
       end
 
-      -- Minimap for buffer overview
-      require("mini.map").setup({
-        integrations = {
-          require("mini.map").gen_integration.gitsigns(),
-        },
-        symbols = {
-          encode = nil,
-          scroll_line = "█",
-          scroll_view = "┃",
-        },
-        window = {
-          focusable = false,
-          side = "right",
-          width = 10,
-          winblend = 25,
-          zindex = 10,
-        },
-      })
-      -- Auto-open minimap
-      require("mini.map").open()
 
       -- Start screen
       require("mini.starter").setup({
@@ -153,6 +133,62 @@ return {
           vim.b.miniindentscope_disable = true
         end,
       })
+    end,
+  },
+
+  -- Minimap plugin with split window support
+  {
+    "Isrothy/neominimap.nvim",
+    version = "v3.*.*",
+    enabled = true,
+    lazy = false,
+    init = function()
+      -- Enable the plugin
+      -- Note: wrap = false is recommended for minimap but can be overridden per filetype
+      vim.opt.sidescrolloff = 36 -- Set a reasonable sidescrolloff for better experience
+
+      vim.g.neominimap = {
+        auto_enable = true,
+        layout = "split", -- Use split instead of float to avoid overlay
+        split = {
+          minimap_width = 15, -- Width of the minimap split
+          direction = "right", -- Position on the right
+          fix_width = true, -- Fixed width
+          close_if_last_window = false, -- Don't auto-close
+        },
+        buf_filter = function(bufnr)
+          local line_count = vim.api.nvim_buf_line_count(bufnr)
+          return line_count < 4096 -- Only show for buffers with less than 4096 lines
+        end,
+        win_filter = function(winid)
+          local bufnr = vim.api.nvim_win_get_buf(winid)
+          local buftype = vim.bo[bufnr].buftype
+          local filetype = vim.bo[bufnr].filetype
+
+          -- Don't show minimap for special buffers
+          if buftype ~= "" then return false end
+          if vim.tbl_contains({"help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy", "mason"}, filetype) then
+            return false
+          end
+          return true
+        end,
+        -- Git integration
+        git = {
+          enabled = true,
+        },
+        -- Diagnostic integration
+        diagnostic = {
+          enabled = true,
+        },
+        -- Search highlighting
+        search = {
+          enabled = true,
+        },
+        -- Treesitter integration for better syntax highlighting
+        treesitter = {
+          enabled = true,
+        },
+      }
     end,
   },
 

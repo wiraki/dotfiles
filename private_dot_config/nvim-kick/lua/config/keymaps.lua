@@ -210,8 +210,14 @@ vim.keymap.set("n", "<leader>sq", function()
 end, { desc = "Search todo comments in current buffer" })
 vim.keymap.set("n", "<leader>sQ", "<cmd>TodoTelescope<CR>", { desc = "[S]earch TODOs in project ([Q]uickfix)" })
 
--- Minimap controls
-vim.keymap.set("n", "<leader>mm", function() require("mini.map").toggle() end, { desc = "Toggle [M]ini[m]ap" })
-vim.keymap.set("n", "<leader>mo", function() require("mini.map").open() end, { desc = "[M]inimap [O]pen" })
-vim.keymap.set("n", "<leader>mc", function() require("mini.map").close() end, { desc = "[M]inimap [C]lose" })
-vim.keymap.set("n", "<leader>mr", function() require("mini.map").refresh() end, { desc = "[M]inimap [R]efresh" })
+-- Word wrap toggle
+vim.keymap.set("n", "<leader>tw", function()
+  vim.opt_local.wrap = not vim.opt_local.wrap:get()
+  print("Word wrap " .. (vim.opt_local.wrap:get() and "enabled" or "disabled"))
+end, { desc = "[T]oggle [W]ord wrap" })
+
+-- Neominimap controls
+vim.keymap.set("n", "<leader>mm", "<cmd>Neominimap Toggle<cr>", { desc = "Toggle [M]ini[m]ap" })
+vim.keymap.set("n", "<leader>mo", "<cmd>Neominimap Enable<cr>", { desc = "[M]inimap [O]n" })
+vim.keymap.set("n", "<leader>mc", "<cmd>Neominimap Disable<cr>", { desc = "[M]inimap [C]lose" })
+vim.keymap.set("n", "<leader>mr", "<cmd>Neominimap Refresh<cr>", { desc = "[M]inimap [R]efresh" })
