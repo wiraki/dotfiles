@@ -94,6 +94,9 @@ zstyle ':fzf-tab:*' fzf-min-height 7
 zstyle ':fzf-tab:*' fzf-flags '--height=~17'
 # Accept input as result when ctrl-c
 zstyle ':fzf-tab:*' print-query ctrl-c
+# Configure multiple selection keybinds (because they conflict with my tmux prefix)
+zstyle ':fzf-tab:*' fzf-flags '--bind=tab:toggle+down,shift-tab:toggle+up'
+zstyle ':fzf-tab:*' fzf-bindings 'ctrl-a:toggle-all'
 # Accept selected entry on enter (disabled for now)
 # zstyle ':fzf-tab:*' accept-line enter
 # Add file content preview for relevant commands
