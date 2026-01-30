@@ -99,5 +99,8 @@ require("searchjump"):setup({
 	search_patterns = {}, -- demo:{"%.e%d+","s%d+e%d+"}
 })
 
+-- enable plugin confirm-quit
+require("confirm-quit"):setup()
+
 -- enable git plugin
 require("git"):setup()

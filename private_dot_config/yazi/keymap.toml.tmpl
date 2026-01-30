@@ -103,6 +103,12 @@ on = ["u"]
 run = "plugin restore"
 desc = "Restore last deleted files/folders"
 
+# Confirm-quit plugin
+[[mgr.prepend_keymap]]
+on = ["q"]
+run = "plugin confirm-quit"
+desc = "Exit the process"
+
 # zoom.yazi plugin to zoom into images in preview
 [[mgr.prepend_keymap]]
 on   = "+"
