@@ -275,6 +275,12 @@ return {
               completion = {
                 callSnippet = "Replace",
               },
+              format = {
+                defaultConfig = {
+                  indent_style = "space",
+                  indent_size = "2",
+                },
+              },
               -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
               diagnostics = { disable = { "missing-fields" } },
             },

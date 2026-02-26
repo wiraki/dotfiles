@@ -27,6 +27,11 @@ return {
           lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
         }
       end,
+      formatters = {
+        stylua = {
+          prepend_args = { "--indent-type", "Spaces", "--indent-width", "2" },
+        },
+      },
       formatters_by_ft = {
         lua = { "stylua" },
         tex = { "latexindent" },

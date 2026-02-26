@@ -53,7 +53,12 @@ return {
         --  All the info you're looking for is in `:help telescope.setup()`
         --
         defaults = {
-          file_ignore_patterns = { "%.git/objects" },
+          file_ignore_patterns = {
+            "%.git/",
+            "node_modules/",
+            "%.venv",
+            "__pycache__/",
+          },
           mappings = {
             i = {
               ["<C-j>"] = require("telescope.actions").move_selection_next,
