@@ -21,8 +21,50 @@ map('n', '<localleader>le', '<cmd>VimtexErrors<cr>', vim.tbl_extend('force', opt
 map('n', '<localleader>lt', '<cmd>VimtexTocToggle<cr>', vim.tbl_extend('force', opts, { desc = 'VimTeX: Toggle TOC' }))
 map('n', '<localleader>lk', '<cmd>VimtexStopAll<cr>', vim.tbl_extend('force', opts, { desc = 'VimTeX: Stop all compilation' }))
 
--- Telescope BibTeX integration
-map('n', '<leader>lb', '<cmd>Telescope bibtex<cr>', vim.tbl_extend('force', opts, { desc = '[L]aTeX [B]ibliography search' }))
+-- BibTeX search via mini.pick
+map('n', '<leader>lb', function()
+  -- Find .bib files: check vimtex context or fall back to glob
+  local bib_files = {}
+  if vim.b.vimtex and vim.b.vimtex.bib then
+    bib_files = vim.b.vimtex.bib
+  end
+  if #bib_files == 0 then
+    bib_files = vim.fn.glob(vim.fn.getcwd() .. '/**/*.bib', false, true)
+  end
+  if #bib_files == 0 then
+    vim.notify('No .bib files found', vim.log.levels.WARN)
+    return
+  end
+
+  -- Parse BibTeX entries from all files
+  local items = {}
+  for _, bib_file in ipairs(bib_files) do
+    local lines = vim.fn.readfile(bib_file)
+    for _, line in ipairs(lines) do
+      local key = line:match('^@%w+{(.+),$')
+      if key then
+        table.insert(items, { text = key, path = bib_file })
+      end
+    end
+  end
+
+  if #items == 0 then
+    vim.notify('No BibTeX entries found', vim.log.levels.WARN)
+    return
+  end
+
+  MiniPick.start({
+    source = {
+      name = 'BibTeX',
+      items = items,
+      choose = function(item)
+        if item then
+          vim.api.nvim_put({ '\\autocite{' .. item.text .. '}' }, 'c', true, true)
+        end
+      end,
+    },
+  })
+end, vim.tbl_extend('force', opts, { desc = '[L]aTeX [B]ibliography search' }))
 
 -- Text objects for LaTeX
 map({'x', 'o'}, 'ie', '<Plug>(vimtex-ie)', { desc = 'LaTeX environment text object (inner)' })

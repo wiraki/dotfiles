@@ -17,9 +17,9 @@ Quick reference for the new three-layer navigation system in your Neovim configu
 - `<leader>K` - Navigate forward through changelist
 
 ### Existing Navigation (unchanged)
-- `<leader>sf` - Find files (Telescope)
-- `<leader>sg` - Live grep (Telescope)
-- `<leader><leader>` - Switch buffers (Telescope)
+- `<leader>sf` - Find files (mini.pick)
+- `<leader>sg` - Live grep (mini.pick)
+- `<leader><leader>` - Switch buffers (mini.pick)
 - `S` - Flash treesitter jump
 - `<C-h/j/k/l>` - Navigate vim/tmux panes
 
@@ -40,7 +40,7 @@ Working on a React component:
 Now use <leader>gn and <leader>gp to cycle between these key files!
 ```
 
-### 2. File Discovery - Telescope
+### 2. File Discovery - mini.pick
 **Use for**: Finding files you haven't tagged yet
 
 ```
@@ -144,4 +144,4 @@ Each git repository has separate Grapple tags:
 3. **Week 3**: Use `<leader>k` to navigate through your recent changes
 4. **Week 4**: Combine all three layers for maximum efficiency
 
-Remember: This enhances your existing workflow - Telescope, Flash, and tmux navigation all work exactly the same!
+Remember: This enhances your existing workflow - mini.pick, Flash, and tmux navigation all work exactly the same!

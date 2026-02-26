@@ -63,24 +63,5 @@ return {
     end,
   },
 
-  -- Telescope integration for BibTeX
-  {
-    "nvim-telescope/telescope-bibtex.nvim",
-    dependencies = { "nvim-telescope/telescope.nvim" },
-    ft = "tex",
-    config = function()
-      require("telescope").setup({
-        extensions = {
-          bibtex = {
-            custom_formats = {
-              {id = 'autocite', cite_marker = '\\autocite{%s}'}
-            },
-            format = 'autocite'
-          }
-        }
-      })
-      require("telescope").load_extension("bibtex")
-    end,
-  },
 }
 

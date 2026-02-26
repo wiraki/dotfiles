@@ -80,11 +80,7 @@ function M.create_buffer_todo_portals()
 end
 
 function M.create_project_todo_portals()
-  if pcall(require, "telescope") then
-    vim.cmd("TodoTelescope")
-  else
-    vim.notify("Telescope not available for project TODO search", vim.log.levels.WARN)
-  end
+  vim.cmd("TodoQuickFix")
 end
 
 function M.next_todo()

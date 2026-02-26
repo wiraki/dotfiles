@@ -52,163 +52,64 @@ end, { desc = "Portal: TODOs in project" })
 vim.keymap.set("n", "]t", todo_portals.next_todo, { desc = "Next TODO" })
 vim.keymap.set("n", "[t", todo_portals.prev_todo, { desc = "Previous TODO" })
 
--- TODO Telescope keymaps
+-- TODO search keymaps
 vim.keymap.set("n", "<leader>sq", function()
-  local conf = require("telescope.config").values
-  local pickers = require("telescope.pickers")
-  local finders = require("telescope.finders")
-  local make_entry = require("telescope.make_entry")
-
   local current_file = vim.fn.expand("%:p")
-
-  -- Get todo-comments configuration
   local todo_config = require("todo-comments.config").options
-  local keywords = vim.tbl_keys(todo_config.keywords)
 
-  -- Also check for alt keywords (like FIXME is alt for FIX)
   local all_keywords = {}
-  for kw, config in pairs(todo_config.keywords) do
+  for kw, kw_conf in pairs(todo_config.keywords) do
     table.insert(all_keywords, kw)
-    if config.alt then
-      -- Add alternative keywords
-      for _, alt in ipairs(config.alt) do
+    if kw_conf.alt then
+      for _, alt in ipairs(kw_conf.alt) do
         table.insert(all_keywords, alt)
       end
     end
   end
 
-  -- Build the search pattern (same as todo-comments does)
   local pattern = [[\b(]] .. table.concat(all_keywords, "|") .. [[)\b(\s*:|\s+)]]
+  local cmd = { "rg", "--vimgrep", "-e", pattern, "--", current_file }
 
-  local opts = {
-    prompt_title = "Todo Comments (Current Buffer)",
-  }
+  local handle = io.popen(table.concat(cmd, " ") .. " 2>/dev/null")
+  if not handle then return end
+  local output = handle:read("*a")
+  handle:close()
 
-  local vimgrep_arguments = vim.tbl_flatten({
-    conf.vimgrep_arguments,
-    "-e",
-    pattern,
-    "--",
-    current_file,
-  })
+  local items = {}
+  for line in output:gmatch("[^\n]+") do
+    local filename, lnum, col, text = line:match("([^:]+):(%d+):(%d+):(.*)")
+    if filename then
+      table.insert(items, {
+        path = current_file,
+        lnum = tonumber(lnum),
+        col = tonumber(col),
+        text = lnum .. ":" .. col .. " " .. text,
+      })
+    end
+  end
 
-  pickers
-    .new(opts, {
-      prompt_title = opts.prompt_title,
-      layout_strategy = "vertical",
-      layout_config = {
-        vertical = { preview_cutoff = 20, preview_height = 0.65 },
-      },
-      finder = finders.new_oneshot_job(vimgrep_arguments, {
-        entry_maker = function(line)
-          -- Parse the line (format: filename:line:col:text)
-          local filename, lnum, col, text = line:match("([^:]+):(%d+):(%d+):(.*)")
+  if #items == 0 then
+    vim.notify("No TODO comments in current buffer", vim.log.levels.INFO)
+    return
+  end
 
-          if filename then
-            -- Create modified line without the path and filename
-            local modified_line = string.format("%s:%s:%s", lnum, col, text)
-
-            -- Create custom entry
-            local entry = {
-              value = line, -- Keep original for actions
-              ordinal = text, -- For filtering
-              display = modified_line, -- Display in Telescope
-              filename = current_file, -- For preview
-              lnum = tonumber(lnum), -- Line number
-              col = tonumber(col), -- Column number
-              text = text,
-            }
-
-            -- Add path for preview to work
-            entry.path = current_file
-
-            -- Apply todo-comments highlighting
-            entry.display = function()
-              -- Find which keyword matches for highlights and where it is
-              local keyword_found = nil
-              local keyword_start, keyword_end = nil, nil
-              local hl_group = nil
-
-              -- Check all keywords
-              for _, kw in ipairs(all_keywords) do
-                local start_pos, end_pos = text:find("%f[%w]" .. kw .. "%f[%W]")
-                if start_pos then
-                  keyword_found = kw
-                  keyword_start = start_pos
-                  keyword_end = end_pos
-
-                  -- Find the highlight group for this keyword
-                  -- Check if it's a main keyword
-                  local kw_config = todo_config.keywords[kw]
-                  if kw_config then
-                    hl_group = "TodoBg" .. kw
-                  else
-                    -- It might be an alt keyword, find its parent
-                    for main_kw, config in pairs(todo_config.keywords) do
-                      if config.alt then
-                        for _, alt in ipairs(config.alt) do
-                          if alt == kw then
-                            hl_group = "TodoBg" .. main_kw
-                            break
-                          end
-                        end
-                      end
-                      if hl_group then
-                        break
-                      end
-                    end
-                  end
-                  break
-                end
-              end
-
-              -- Build the display with virtual text highlighting
-              local display_str = lnum .. ":" .. col .. " " .. text
-              local highlights = {}
-
-              -- Highlight line:col
-              table.insert(highlights, {
-                { 0, #(lnum .. ":" .. col) },
-                "TelescopeResultsLineNr",
-              })
-
-              -- Highlight only the keyword if found
-              if keyword_found and keyword_start then
-                local offset = #(lnum .. ":" .. col .. " ")
-                table.insert(highlights, {
-                  { offset + keyword_start - 1, offset + keyword_end },
-                  hl_group or "Comment",
-                })
-              end
-
-              return display_str, highlights
-            end
-
-            return entry
-          end
-        end,
-      }),
-      previewer = conf.grep_previewer(opts),
-      sorter = conf.generic_sorter(opts),
-      attach_mappings = function(_, map)
-        local actions = require("telescope.actions")
-        local action_state = require("telescope.actions.state")
-
-        actions.select_default:replace(function(prompt_bufnr)
-          local selection = action_state.get_selected_entry()
-          if selection then
-            actions.close(prompt_bufnr)
-            -- jump to the selected position
-            vim.api.nvim_win_set_cursor(0, { selection.lnum, selection.col - 1 })
-          end
-        end)
-
-        return true
+  MiniPick.start({
+    source = {
+      name = "TODO (current buffer)",
+      items = items,
+      show = function(buf_id, items_to_show, query)
+        MiniPick.default_show(buf_id, items_to_show, query)
       end,
-    })
-    :find()
+      choose = function(item)
+        if item then
+          vim.api.nvim_win_set_cursor(0, { item.lnum, item.col - 1 })
+        end
+      end,
+    },
+  })
 end, { desc = "Search todo comments in current buffer" })
-vim.keymap.set("n", "<leader>sQ", "<cmd>TodoTelescope<CR>", { desc = "[S]earch TODOs in project ([Q]uickfix)" })
+
+vim.keymap.set("n", "<leader>sQ", "<cmd>TodoQuickFix<CR>", { desc = "[S]earch TODOs in project ([Q]uickfix)" })
 
 -- Word wrap toggle
 vim.keymap.set("n", "<leader>tw", function()

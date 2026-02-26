@@ -96,7 +96,6 @@ return {
         return "%2l:%-2v"
       end
 
-
       -- Start screen
       require("mini.starter").setup({
         evaluate_single = true,
@@ -111,8 +110,79 @@ return {
         silent = false,
       })
 
-      -- ... and there is more!
-      --  Check out: https://github.com/nvim-mini/mini.nvim
+      -- Fuzzy finder (replaces telescope.nvim)
+      require("mini.pick").setup({
+        mappings = {
+          move_down = "<C-j>",
+          move_up = "<C-k>",
+          scroll_down = "<C-d>",
+          scroll_up = "<C-u>",
+          delete_left = "",
+        },
+        window = {
+          prompt_prefix = " 󰍉 ",
+          config = function()
+            local height = math.floor(vim.o.lines * 0.65)
+            local width = math.floor(vim.o.columns * 0.65)
+            return {
+              anchor = "NW",
+              border = "rounded",
+              col = math.floor((vim.o.columns - width) / 2),
+              row = math.floor((vim.o.lines - height) / 2 - 1),
+              height = height,
+              width = width,
+            }
+          end,
+        },
+      })
+      require("mini.extra").setup()
+      vim.ui.select = MiniPick.ui_select
+
+      -- Search keybindings
+      vim.keymap.set("n", "<leader>sh", function()
+        MiniPick.builtin.help()
+      end, { desc = "[S]earch [H]elp" })
+      vim.keymap.set("n", "<leader>sk", function()
+        MiniExtra.pickers.keymaps()
+      end, { desc = "[S]earch [K]eymaps" })
+      vim.keymap.set("n", "<leader>sf", function()
+        MiniPick.builtin.files({ tool = "rg" }, {
+          source = {
+            name = "Files (all)",
+            shell_command = { "rg", "--files", "--hidden", "--no-ignore", "--glob", "!.git/objects" },
+          },
+        })
+      end, { desc = "[S]earch [F]iles" })
+      vim.keymap.set("n", "<leader>ss", function()
+        MiniExtra.pickers.commands()
+      end, { desc = "[S]earch [S]elect command" })
+      vim.keymap.set("n", "<leader>sw", function()
+        MiniPick.builtin.grep({ pattern = vim.fn.expand("<cword>") })
+      end, { desc = "[S]earch current [W]ord" })
+      vim.keymap.set("n", "<leader>sg", function()
+        MiniPick.builtin.grep_live()
+      end, { desc = "[S]earch by [G]rep" })
+      vim.keymap.set("n", "<leader>sd", function()
+        MiniExtra.pickers.diagnostic()
+      end, { desc = "[S]earch [D]iagnostics" })
+      vim.keymap.set("n", "<leader>sr", function()
+        MiniPick.builtin.resume()
+      end, { desc = "[S]earch [R]esume" })
+      vim.keymap.set("n", "<leader>s.", function()
+        MiniExtra.pickers.oldfiles()
+      end, { desc = '[S]earch Recent Files ("." for repeat)' })
+      vim.keymap.set("n", "<leader><leader>", function()
+        MiniPick.builtin.buffers()
+      end, { desc = "[ ] Find existing buffers" })
+      vim.keymap.set("n", "<leader>/", function()
+        MiniExtra.pickers.buf_lines({ scope = "current" })
+      end, { desc = "[/] Fuzzily search in current buffer" })
+      vim.keymap.set("n", "<leader>s/", function()
+        MiniExtra.pickers.buf_lines({ scope = "all" })
+      end, { desc = "[S]earch [/] in Open Files" })
+      vim.keymap.set("n", "<leader>sn", function()
+        MiniPick.builtin.files(nil, { source = { cwd = vim.fn.stdpath("config") } })
+      end, { desc = "[S]earch [N]eovim files" })
     end,
     init = function()
       vim.api.nvim_create_autocmd("FileType", {
@@ -166,8 +236,10 @@ return {
           local filetype = vim.bo[bufnr].filetype
 
           -- Don't show minimap for special buffers
-          if buftype ~= "" then return false end
-          if vim.tbl_contains({"help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy", "mason"}, filetype) then
+          if buftype ~= "" then
+            return false
+          end
+          if vim.tbl_contains({ "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy", "mason" }, filetype) then
             return false
           end
           return true
