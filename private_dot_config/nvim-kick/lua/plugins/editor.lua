@@ -218,7 +218,7 @@ return {
       vim.opt.sidescrolloff = 36 -- Set a reasonable sidescrolloff for better experience
 
       vim.g.neominimap = {
-        auto_enable = true,
+        auto_enable = false,
         layout = "split", -- Use split instead of float to avoid overlay
         split = {
           minimap_width = 15, -- Width of the minimap split
