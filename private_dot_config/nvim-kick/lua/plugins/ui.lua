@@ -82,6 +82,8 @@ return {
 
       -- Document existing key chains
       require("which-key").add({
+        { "<leader>b", group = "[B]uffer" },
+        { "<leader>b_", hidden = true },
         { "<leader>c", group = "[C]ode" },
         { "<leader>c_", hidden = true },
         { "<leader>d", group = "[D]ocument" },

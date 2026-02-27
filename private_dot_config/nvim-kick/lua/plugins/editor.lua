@@ -32,6 +32,12 @@ return {
       -- Better Around/Inside textobjects
       require("mini.ai").setup({ n_lines = 500 })
 
+      -- Buffer removal that preserves window layout
+      require("mini.bufremove").setup()
+      vim.keymap.set("n", "<leader>bd", function()
+        MiniBufremove.delete()
+      end, { desc = "[B]uffer [D]elete" })
+
       -- Note: mini.surround is now loaded separately in mini-surround.lua
 
       -- Indent guides
