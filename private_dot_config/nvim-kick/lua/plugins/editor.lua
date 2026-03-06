@@ -124,6 +124,8 @@ return {
           scroll_down = "<C-d>",
           scroll_up = "<C-u>",
           delete_left = "",
+          choose_in_split = "<C-s>",
+          choose_in_vsplit = "<C-\\>",
         },
         window = {
           prompt_prefix = " 󰍉 ",
