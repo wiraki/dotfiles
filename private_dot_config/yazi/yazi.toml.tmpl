@@ -45,6 +45,9 @@ extract = [
 	{ run = 'unar "$1"', desc = "Extract here", for = "unix" },
 	{ run = 'unar "%1"', desc = "Extract here", for = "windows" },
 ]
+browser = [
+	{ run = 'xdg-open "$@"', desc = "Browser", for = "linux" },
+]
 play = [
 	{ run = 'mpv "$@"', orphan = true, for = "unix" },
 	{ run = 'mpv "%1"', orphan = true, for = "windows" },
@@ -55,6 +58,7 @@ play = [
 rules = [
 	{ name = "*/", use = [ "edit", "open", "reveal" ] },
 
+	{ mime = "text/html",       use = [ "browser", "edit", "reveal" ] },
 	{ mime = "text/*",          use = [ "edit", "reveal" ] },
 	{ mime = "image/*",         use = [ "open", "reveal" ] },
 	{ mime = "{audio,video}/*", use = [ "play", "reveal" ] },
