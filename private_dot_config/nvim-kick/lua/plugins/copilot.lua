@@ -27,8 +27,7 @@ return {
           ["."] = false,
         },
 
-        -- Optional: Specify copilot node command if needed
-        -- copilot_node_command = 'node', -- Node.js version must be > 18.x
+        copilot_node_command = vim.fn.expand("~/.local/share/mise/shims/node"),
       })
     end,
   },
