@@ -1,6 +1,6 @@
 # A TOML linter such as https://taplo.tamasfe.dev/ can use this schema to validate your config.
 # If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
-"$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
+#:schema https://yazi-rs.github.io/schemas/yazi.json
 
 [mgr]
 ratio          = [ 1, 3, 4 ]
@@ -56,7 +56,7 @@ play = [
 
 [open]
 rules = [
-	{ name = "*/", use = [ "edit", "open", "reveal" ] },
+	{ url = "*/", use = [ "edit", "open", "reveal" ] },
 
 	{ mime = "text/html",       use = [ "browser", "edit", "reveal" ] },
 	{ mime = "text/*",          use = [ "edit", "reveal" ] },
@@ -84,27 +84,27 @@ suppress_preload = false
 [plugin]
 
 preloaders = [
-	{ name = "/home/{{ .chezmoi.username }}/dt/**", run = "noop" },
+	{ url = "/home/{{ .chezmoi.username }}/dt/**", run = "noop" },
 ]
 prepend_preloaders = [
 ]
 prepend_previewers = [
-	{ name = "*/",				run = "eza-preview" },
-	{ name = "*.md",			run = "glow" },
-	{ name = "*.qmd",			run = "glow" },
+	{ url = "*/",				run = "eza-preview" },
+	{ url = "*.md",			run = "glow" },
+	{ url = "*.qmd",			run = "glow" },
 	{ mime = "application/*zip",            run = "ouch" },
 	{ mime = "application/tar",           run = "ouch" },
 	{ mime = "application/bzip2",         run = "ouch" },
 	{ mime = "application/7z-compressed", run = "ouch" },
 	{ mime = "application/rar",           run = "ouch" },
 	{ mime = "application/xz",            run = "ouch" },
-	{ name = "*.txt.gz",			run = "zless-preview"},
-	{ name = "*.csv.gz",			run = "zless-preview"},
-	{ name = "*.tsv.gz",			run = "zless-preview"}
+	{ url = "*.txt.gz",			run = "zless-preview"},
+	{ url = "*.csv.gz",			run = "zless-preview"},
+	{ url = "*.tsv.gz",			run = "zless-preview"}
 ]
 previewers = [
-	{ name = "/home/{{ .chezmoi.username }}/dt/**", run = "noop" },
-	{ name = "*/", run = "folder", sync = true },
+	{ url = "/home/{{ .chezmoi.username }}/dt/**", run = "noop" },
+	{ url = "*/", run = "folder", sync = true },
 	# Code
 	{ mime = "text/*", run = "code" },
 	{ mime = "*/{xml,javascript,wine-extension-ini}", run = "code" },
@@ -121,12 +121,12 @@ previewers = [
 	{ mime = "application/*zip", run = "archive" },
 	{ mime = "application/{tar,bzip*,7z-compressed,xz,rar}", run = "archive" },
 	# Fallback
-	{ name = "*", run = "file" },
+	{ url = "*", run = "file" },
 ]
 
 prepend_fetchers = [
-	{ id = "git", name = "*", run = "git" },
-	{ id = "git", name = "*/", run = "git" },
+	{ id = "git", url = "*", run = "git", group = "git" },
+	{ id = "git", url = "*/", run = "git", group = "git" },
 ]
 	
 
