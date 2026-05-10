@@ -1,17 +1,20 @@
 # Add at the beginning of PATH
 typeset -U PATH path
-path=(~/.local/bin ~/bin ~/.cargo/bin ~/.atuin/bin /usr/local/bin $path)
+path=(~/.local/bin ~/bin ~/.cargo/bin /usr/local/bin $path)
 
 {{- if eq .chezmoi.hostname "workPC"}}
+# workPC-only: Aspera CLI (genomics transfers), curl-installed atuin
 path=(~/.aspera/cli $path)
-{{- end }}
+path=(~/.atuin/bin $path)
 
+# workPC-only: manual TeX Live install (system76-lemur uses pacman texlive-meta in /usr/bin)
 path=(/usr/local/texlive/2025/bin/x86_64-linux $path)
 export MANPATH="/usr/local/texlive/2025/texmf-dist/doc/man:$MANPATH"
 export INFOPATH="/usr/local/texlive/2025/texmf-dist/doc/info:$INFOPATH"
 
-# Add Homebrew (linuxbrew) site-functions to fpath (to have zsh-completions for tools installed using brew)
+# workPC-only: Homebrew (linuxbrew) site-functions for zsh-completions
 fpath=($HOMEBREW_PREFIX/share/zsh/site-functions $fpath)
+{{- end }}
 
 # Export PATH
 export PATH
@@ -27,10 +30,6 @@ fi
 ## export BAT_THEME="Nord"
 ## export BAT_PAGER="less"
 
-# Export spicetify
-export SPICETIFY_INSTALL="$HOME/.spicetify"
-export PATH="$PATH:$HOME/.spicetify"
-
 # Set editor
 export EDITOR="nvim_kick"
 
@@ -40,8 +39,12 @@ export TMUX_PLUGIN_MANAGER_PATH="$HOME/.config/tmux/plugins"
 # Stop telemetry from microsoft dotnet
 export DOTNET_CLI_TELEMETRY_OPTOUT="true"
 
-# Add Go to path
-path=(/usr/local/go/bin ~/go/bin $path)
+# Add Go user-install bin to path (system go is in /usr/bin via pacman on system76-lemur)
+path=(~/go/bin $path)
+{{- if eq .chezmoi.hostname "workPC" }}
+# workPC-only: manual Go install at /usr/local/go/bin
+path=(/usr/local/go/bin $path)
+{{- end }}
 
 # Add pixi to path
 path=(~/.pixi/bin $path)

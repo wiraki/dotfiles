@@ -30,8 +30,10 @@ cleanup = true
 # Run specific steps - same options as the command line flag
 only = [
     "system",
+{{- if eq .chezmoi.hostname "workPC" }}
     "brew_cask",
     "brew_formula",
+{{- end }}
     "cargo",
     "chezmoi",
     "flatpak",
@@ -40,7 +42,6 @@ only = [
     "rustup",
     "yazi",
     "tmux",
-    "vscode",
     "mise",
     "custom_commands",
     "self_update",

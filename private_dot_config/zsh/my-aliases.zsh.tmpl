@@ -18,10 +18,12 @@ alias tv="tidy-viewer"
 # ripgrep
 alias grep="rg"
 alias rg="rg -SN"
+{{- if eq .chezmoi.hostname "workPC" }}
 
-# Alias for advcpmv (cp and mv with progress bar)
+# advcpmv (cp/mv with progress bar) — workPC has these manually installed under /usr/local/bin
 alias cp="/usr/local/bin/advcp -g"
 alias mv="/usr/local/bin/advmv -g"
+{{- end }}
 
 # Switch lazyvim configs
 alias kvim='NVIM_APPNAME=nvim-kick nvim' # Kickstart

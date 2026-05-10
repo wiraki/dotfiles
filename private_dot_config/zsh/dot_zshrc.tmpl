@@ -21,9 +21,11 @@ source "${ZINIT_HOME}/zinit.zsh"
 
 # Add PowerLevel10K
 zinit ice depth=1; zinit light romkatv/powerlevel10k
+{{- if eq .chezmoi.hostname "workPC" }}
 
-# need to have this before autoload compinit
+# workPC uses Homebrew; need shellenv before autoload compinit so brew completions reach fpath
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+{{- end }}
 
 # Load completions
 autoload -Uz compinit
@@ -113,7 +115,6 @@ eval "$(navi widget zsh)"
 eval "$(atuin init zsh)"
 # eval "$(pyenv init -)"
 ## Use the function wrappers below when benchmarking with zprof
-# brews~() eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 # fzfs~() eval "$(fzf --zsh)"
 # zoxides~() eval "$(zoxide init --cmd cd zsh)"
 # navis~() eval "$(navi widget zsh)"
@@ -125,7 +126,7 @@ eval "$(atuin init zsh)"
 # lazyload nvm -- 'source ~/.nvm/nvm.sh && source ~/.nvm/bash_completion'
 
 # activate mise
-eval "$(/usr/bin/mise activate zsh --shims)"
+command -v mise &>/dev/null && eval "$(mise activate zsh --shims)"
 
 # Configure command used for **<TAB> completion
 _fzf_compgen_path() {
