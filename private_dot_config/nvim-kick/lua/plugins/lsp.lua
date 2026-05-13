@@ -140,7 +140,7 @@ return {
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
             end, "[T]oggle Inlay [H]ints")
           end
-          if client and client.name == "pyright" then
+          if client and client.name == "basedpyright" then
             -- Check if we're in a Python project with pyproject.toml
             if vim.fn.filereadable("pyproject.toml") == 1 then
               local python_path = nil
@@ -203,11 +203,11 @@ return {
         },
       })
 
-      vim.lsp.config("pyright", {
+      vim.lsp.config("basedpyright", {
         capabilities = capabilities,
         root_markers = { "pyproject.toml", "setup.py", ".git" },
         settings = {
-          python = {
+          basedpyright = {
             analysis = {
               typeCheckingMode = "standard",
               autoSearchPaths = true,
@@ -239,14 +239,14 @@ return {
         },
       })
 
-      vim.lsp.enable({ "texlab", "pyright", "ruff", "lua_ls" })
+      vim.lsp.enable({ "texlab", "basedpyright", "ruff", "lua_ls" })
 
       require("mason").setup()
 
       require("mason-tool-installer").setup({
         ensure_installed = {
           "texlab",
-          "pyright",
+          "basedpyright",
           "ruff",
           "lua_ls",
           "stylua",
@@ -254,7 +254,7 @@ return {
       })
 
       require("mason-lspconfig").setup({
-        ensure_installed = { "texlab", "pyright", "ruff", "lua_ls" },
+        ensure_installed = { "texlab", "basedpyright", "ruff", "lua_ls" },
       })
     end,
   },
