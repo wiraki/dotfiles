@@ -67,8 +67,6 @@ desc = "Search files by content using ripgrep"
 on = [ "s","j" ]
 run = "plugin searchjump -- autocd"
 desc = "searchjump mode"
-# run  = "plugin jump-to-char"
-# desc = "Jump to char"
 
 [[mgr.prepend_keymap]]
 on = ["C"]
@@ -125,6 +123,11 @@ desc = "Zoom out hovered file"
 on = "<C-r>"
 run = "plugin duck-radar"
 desc = "Duck radar - search for recent files in standard directories"
+
+[[mgr.prepend_keymap]]
+on = [ "t", "x" ]
+run = "close"
+desc = "Close the current tab"
 
 {{ if eq .chezmoi.hostname "system76-lemur" -}}
 [[mgr.prepend_keymap]]

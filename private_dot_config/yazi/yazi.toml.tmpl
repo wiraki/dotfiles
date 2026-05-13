@@ -89,18 +89,15 @@ preloaders = [
 prepend_preloaders = [
 ]
 prepend_previewers = [
-	{ url = "*/",				run = "eza-preview" },
-	{ url = "*.md",			run = "glow" },
-	{ url = "*.qmd",			run = "glow" },
+	{ url = "*/",   run = 'piper -- eza -TL=3 --color=always --icons=always --group-directories-first --no-quotes "$1"' },
+	{ url = "*.md", run = 'piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark "$1"' },
+	{ url = "*.qmd", run = 'piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark "$1"' },
 	{ mime = "application/*zip",            run = "ouch" },
 	{ mime = "application/tar",           run = "ouch" },
 	{ mime = "application/bzip2",         run = "ouch" },
 	{ mime = "application/7z-compressed", run = "ouch" },
 	{ mime = "application/rar",           run = "ouch" },
 	{ mime = "application/xz",            run = "ouch" },
-	{ url = "*.txt.gz",			run = "zless-preview"},
-	{ url = "*.csv.gz",			run = "zless-preview"},
-	{ url = "*.tsv.gz",			run = "zless-preview"}
 ]
 previewers = [
 	{ url = "/home/{{ .chezmoi.username }}/dt/**", run = "noop" },
