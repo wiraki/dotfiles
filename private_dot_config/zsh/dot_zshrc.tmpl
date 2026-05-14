@@ -111,13 +111,11 @@ zstyle ':fzf-tab:complete:((micro|cut|cp|mv|rm|bat|less|code|nano|atom|vd|nvim|k
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
-eval "$(navi widget zsh)"
 eval "$(atuin init zsh)"
 # eval "$(pyenv init -)"
 ## Use the function wrappers below when benchmarking with zprof
 # fzfs~() eval "$(fzf --zsh)"
 # zoxides~() eval "$(zoxide init --cmd cd zsh)"
-# navis~() eval "$(navi widget zsh)"
 # atuins~() eval "$(atuin init zsh)"
 # pyenvs~() eval "$(pyenv init -)"
 # for f in $functions[(I)*s~]; do $f; unfunction $f; done
