@@ -143,7 +143,12 @@ inactive_tab_foreground #fff
 inactive_tab_background #647b94
 inactive_tab_font_style italic
 
+{{ if eq .chezmoi.hostname "system76-lemur" -}}
+background_opacity 0.8
+background_blur 10
+{{- else -}}
 background_opacity 1
+{{- end }}
 dynamic_background_opacity yes
 
 kitty_mod ctrl+shift
